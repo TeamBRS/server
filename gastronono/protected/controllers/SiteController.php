@@ -45,6 +45,59 @@ class SiteController extends Controller
 				$this->render('error', $error);
 		}
 	}
+	
+	public function actionCreate()
+        {
+                $model=new User;
+                // Uncomment the following line if AJAX validation is needed
+                // $this->performAjaxValidation($model);
+
+                if(isset($_POST['User']))
+                {
+                        $model->attributes=$_POST['User'];
+                        if($model->save())
+                                $this->redirect(array('view','id'=>$model->id));
+                }
+                $this->render('create',array(
+                        'model'=>$model,
+                ));
+        }
+    
+        public function actionRegister()
+        {
+                $model=new RegisterForm;
+                $newUser = new User;
+                
+                // if it is ajax validation request
+                if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
+                {
+                        echo CActiveForm::validate($model);
+                        Yii::app()->end();
+                }
+
+                // collect user input data
+                if(isset($_POST['registerForm']))
+                {
+                        $model->attributes=$_POST['registerForm'];
+                        
+                        if ($model->validate()) {
+                                $newUser->username = $model->username;
+                                $newUser->password = $model->password;
+                                $newUser->email = $model->email;
+                                        
+                                if($newUser->save()) {
+                                        $identity=new UserIdentity($newUser->username,$model->password);
+                                        $identity->authenticate();
+                                        Yii::app()->user->login($identity,0);
+                                        //redirect the user to page he/she came from
+                                        $this->redirect(Yii::app()->user->returnUrl);
+                                }
+                        }
+                                
+                }
+                // display the register form
+                $this->render('register',array('model'=>$model));
+        }  
 
 	/**
 	 * Displays the contact page
