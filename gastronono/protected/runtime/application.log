@@ -223,3 +223,23 @@ Stack trace:
 REQUEST_URI=/server/gastronono/index.php?r=site/register
 HTTP_REFERER=http://localhost:8888/server/gastronono/index.php?r=site/register
 ---
+2012/12/11 19:36:10 [error] [php] Object of class UserIdentity could not be converted to string (/Applications/MAMP/htdocs/yii/framework/web/helpers/CHtml.php:144)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/gastronono/protected/views/site/login.php(38): CActiveForm->error()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CBaseController.php(127): require()
+#2 /Applications/MAMP/htdocs/yii/framework/web/CBaseController.php(96): SiteController->renderInternal()
+#3 /Applications/MAMP/htdocs/yii/framework/web/CController.php(870): SiteController->renderFile()
+#4 /Applications/MAMP/htdocs/yii/framework/web/CController.php(783): SiteController->renderPartial()
+#5 /Applications/MAMP/htdocs/server/gastronono/protected/controllers/SiteController.php(134): SiteController->render()
+#6 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionLogin()
+#7 /Applications/MAMP/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#8 /Applications/MAMP/htdocs/yii/framework/web/CController.php(287): SiteController->runAction()
+#9 /Applications/MAMP/htdocs/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#10 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#11 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#12 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /Applications/MAMP/htdocs/server/gastronono/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/gastronono/index.php?r=site/login
+in /Applications/MAMP/htdocs/server/gastronono/protected/views/site/login.php (38)
+in /Applications/MAMP/htdocs/server/gastronono/protected/controllers/SiteController.php (134)
+in /Applications/MAMP/htdocs/server/gastronono/index.php (13)

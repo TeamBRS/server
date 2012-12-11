@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Påmelding</h1>
+<h1>Tell us about yourself...</h1>
 
 <?php if(Yii::app()->user->hasFlash('Register')): ?>
 
@@ -20,25 +20,25 @@ $this->breadcrumbs=array(
 <?php else: ?>
 
 <p>
-Fyll in din information her.
+Here at GastroNoNo, we want to know more about you and what you want from eating out!
 </p>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm'); ?>
 
-        <p class="note">Felt med <span class="required">*</span> må fylles in.</p>
+        <p class="note">Information marked <span class="required"> * </span> helps us get a better idea of what to recommend.</p>
 
-        <?php echo $form->errorSummary($model, 'Vennligst endre føljende feil:'); ?>
+        <?php echo $form->errorSummary($model, 'We still need the following information:'); ?>
        
         <div class="row">
                 <?php echo $form->labelEx($model,'username'); ?>
-                <?php echo $form->dropDownList($model,'username', array(''=>'-- Velg by --', 'Oslo'=>'Oslo','Bergen'=>'Bergen','Hamar'=>'Hamar')); ?>
+                <?php echo $form->textField($model,'username'); ?>
         </div>
 
         <div class="row">
                 <?php echo $form->labelEx($model,'password'); ?>
-                <?php echo $form->dropDownList($model,'password', array('Nej, takk'=>'Nej, takk','Enkeltrom'=>'Enkeltrom','Dobbeltrom'=>'Dobbeltrom')); ?>
+                <?php echo $form->passwordField($model,'password'); ?>
         </div>
 
         <div class="row">

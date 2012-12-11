@@ -33,9 +33,9 @@ class registerForm extends CFormModel
         public function attributeLabels()
         {
                 return array(
-                        'username'=>'Your username for the game',
-                        'password'=>'Your password for the game',
-                        'email'=>'Needed in the event of password resets',
+                        'username'=>'Your username',
+                        'password'=>'Your password',
+                        'email'=>'E-mail',
                 );
         }
 }
