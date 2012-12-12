@@ -15,9 +15,13 @@ class UserIdentity extends CUserIdentity
 	 * against some persistent user identity storage (e.g. database).
 	 * @return boolean whether authentication succeeds.
 	 */
+	 
+	//private $_id; 
+	
 	public function authenticate()
 	{
-		$users=array(
+		//old authentication method
+		/*$users=array(
 			// username => password
 			'demo'=>'demo',
 			'admin'=>'admin',
@@ -28,6 +32,22 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
 		else
 			$this->errorCode=self::ERROR_NONE;
+		*/
+		
+		//better authentication method
+		
+		//search for the user's record
+		$record=User::model()->findByAttributes(array('username'=>$this->username));
+		
+		//if found, validate against their password
+        if($record===null)
+            $this->errorCode=self::ERROR_USERNAME_INVALID;
+        else if($record->password!==$this->password)
+            $this->errorCode=self::ERROR_PASSWORD_INVALID;
+        else {
+            $this->errorCode=self::ERROR_NONE;
+        }
+		
 		return !$this->errorCode;
 	}
 }
