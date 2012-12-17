@@ -96,16 +96,16 @@ div.flash-error
 
 div.flash-notice
 {
-	background:#FFF6BF;
-	color:#514721;
-	border-color:#FFD324;
+	background:#FFFFFF;
+	color:#000000;
+	border-color:#000000;
 }
 
 div.flash-success
 {
-	background:#E6EFC2;
-	color:#264409;
-	border-color:#C6D880;
+	background:#FFFFFF;
+	color:#000000;
+	border-color:#000000;
 }
 
 div.flash-error a

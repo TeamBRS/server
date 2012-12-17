@@ -107,6 +107,70 @@ class SiteController extends Controller
 		}
 		$this->render('contact',array('model'=>$model));
 	}
+	
+	public function actionFSA()
+	{
+	
+		$model=new FSAModel;
+		
+		if(isset($_POST['FSAModel']))
+		{
+		
+			$model->attributes=$_POST['FSAModel'];
+			
+			$loc = $model->location;
+			
+			$this->reverseGeocode($loc);
+
+
+		}
+	
+		$this->render('fsa',array('model'=>$model));
+	}
+
+	public function reverseGeocode($location) 
+	{
+		$xmlstring = "";
+	
+		$latlong = explode(", ", $location);
+		$querystring = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=".$latlong[0].",".$latlong[1]."&sensor=true";
+		$fsastringr = "http://ratings.food.gov.uk/enhanced-search/en-GB/^/^/DISTANCE/1/^/".$latlong[1]."/".$latlong[0]."/1/5/xml";
+		$fsastringp = "http://ratings.food.gov.uk/enhanced-search/en-GB/^/^/DISTANCE/8/^/".$latlong[1]."/".$latlong[0]."/1/5/xml";
+		$fsastringt = "http://ratings.food.gov.uk/enhanced-search/en-GB/^/^/DISTANCE/10/^/".$latlong[1]."/".$latlong[0]."/1/5/xml";
+	
+
+		//Get xml data using CURL
+		
+		$xml = simplexml_load_file($querystring);
+		
+		$locality = $xml->result->address_component[2]->long_name;
+		$adminarea = $xml->result->address_component[3]->long_name;
+		
+		$xmlstring = "<h3>You are in ".$locality.", ".$adminarea."</h3>";
+		
+		//Get FSA Listings
+		
+		$xmlrests = simplexml_load_file($fsastringr);
+		$xmlpubs = simplexml_load_file($fsastringp);
+		$xmltakes = simplexml_load_file($fsastringt);
+		
+		//Construct FSA Listings
+	
+		$xmlrest = $xmlrests->EstablishmentCollection;
+		$xmltemp = ""; 
+		
+		foreach($xmlrest->EstablishmentDetail as $child)
+		{
+			$xmltemp = $xmltemp."<br /><b>" . $child->BusinessName . "</b><br />" . 
+										 $child->BusinessType . "<br />" .
+										 $child->AddressLine1 . "<br />" .
+										 $child->RatingValue . " Star Rating<br />";
+		
+		}
+		
+		Yii::app()->user->setFlash('fsa',  $xmlstring.$xmltemp);
+		$this->refresh();
+	}
 
 	/**
 	 * Displays the login page

@@ -325,3 +325,1135 @@ Stack trace:
 REQUEST_URI=/server/index.php?r=cuisine/admin
 HTTP_REFERER=http://localhost/server/index.php?r=cuisine/create
 ---
+2012/12/17 01:08:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "fsa" was not found.' in /Applications/MAMP/htdocs/server/yii/framework/web/actions/CViewAction.php:113
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CViewAction.php(124): CViewAction->resolveView('fsa')
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CAction.php(75): CViewAction->run()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CAction->runWithParams(Array)
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): CController->runAction(Object(CViewAction))
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): CController->run('page')
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/page')
+#7 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /Applications/MAMP/htdocs/server/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/server/index.php?r=site/page&view=fsa
+---
+2012/12/17 01:08:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "fsa".' in /Applications/MAMP/htdocs/server/yii/framework/web/CController.php:484
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(271): CController->missingAction('fsa')
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): CController->run('fsa')
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/fsa')
+#3 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/MAMP/htdocs/server/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/server/index.php?r=site/fsa
+HTTP_REFERER=http://localhost:8888/server/index.php?r=site/index
+---
+2012/12/17 14:08:48 [error] [php] Undefined variable: model (/Applications/MAMP/htdocs/server/protected/views/site/fsa.php:45)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(870): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(783): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(114): SiteController->render()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/views/site/fsa.php (45)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (114)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 14:17:51 [error] [php] Undefined variable: model (/Applications/MAMP/htdocs/server/protected/views/site/fsa.php:45)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(870): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(783): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(116): SiteController->render()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/views/site/fsa.php (45)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (116)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:10:54 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:10:54 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:10:54 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:11:20 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:11:20 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:11:20 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:11:45 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:11:45 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:11:45 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:11:47 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:11:47 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:11:47 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:11:50 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:11:50 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:11:50 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:12:51 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:12:51 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:12:51 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:13:47 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:13:47 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:13:47 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:17:41 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:17:41 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:17:41 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:17:47 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:17:47 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:17:47 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:20:13 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:20:13 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:20:13 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:21:15 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:21:15 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:21:15 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:21:46 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:21:46 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:21:46 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:23:06 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:23:06 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:23:06 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:30:12 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:30:12 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:30:12 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:30:13 [error] [php] simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:144)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#6 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#7 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (144)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:30:49 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:30:49 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:30:49 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:30:49 [error] [php] Array to string conversion (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:146)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (146)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:32:25 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:32:25 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:32:25 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:32:31 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:32:31 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:32:31 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:32:45 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:32:45 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:32:45 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:32:46 [error] [php] Array to string conversion (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:146)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (146)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:33:31 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:33:31 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:33:31 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:33:45 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:33:45 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:33:45 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:34:25 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:34:25 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:34:25 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:34:51 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:34:51 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:34:51 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:34:51 [error] [php] SimpleXMLElement::xpath(): Invalid expression (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:145)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#6 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#7 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (145)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:35:09 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:35:09 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:35:09 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:39:11 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:39:11 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:39:11 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:39:11 [error] [php] SimpleXMLElement::xpath(): Invalid expression (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:145)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#6 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#7 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (145)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:39:23 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:39:23 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:39:23 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:39:23 [error] [php] Trying to get property of non-object (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:146)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (146)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:40:04 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:40:04 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:40:04 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:40:04 [error] [php] SimpleXMLElement::__construct(): Entity: line 13: parser error : Start tag expected, '&lt;' not found (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:145)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#6 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#7 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (145)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:40:51 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:40:51 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:40:51 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:40:51 [error] [php] Trying to get property of non-object (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:146)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (146)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:41:18 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:41:18 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:41:18 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:41:18 [error] [php] Trying to get property of non-object (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:146)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (146)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:41:31 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:41:31 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:41:31 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:42:14 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:42:14 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:42:14 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:42:17 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:42:17 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:42:17 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:42:34 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:42:34 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:42:34 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:42:44 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:42:44 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:42:44 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:43:00 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:43:00 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:43:00 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:06 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:06 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:06 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:07 [error] [php] Trying to get property of non-object (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:146)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (146)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:25 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:25 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:25 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:25 [error] [php] Trying to get property of non-object (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:146)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (146)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:34 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:34 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:34 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:57 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:57 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:44:57 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:47:26 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:47:26 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:47:26 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:47:27 [error] [php] Undefined variable: query_string (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:144)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (144)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:47:37 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:47:37 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:47:37 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:47:49 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:47:49 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:47:49 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:48:51 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:48:51 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:48:51 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:50:43 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:50:43 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:50:43 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:51:15 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:51:15 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:51:15 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:53:34 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:53:34 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 15:53:34 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:03:09 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:03:09 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:03:09 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:03:09 [error] [exception.CException] exception 'CException' with message 'CWebUser and its behaviors do not have a method or closure named "echo".' in /Applications/MAMP/htdocs/server/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(145): CComponent->__call('echo', Array)
+#1 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(145): CWebUser->echo('all done')
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(123): SiteController->reverseGeocode('51.015065899999...')
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): CController->run('fsa')
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/fsa')
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/server/index.php?r=site/fsa
+HTTP_REFERER=http://localhost:8888/server/index.php?r=site/fsa
+---
+2012/12/17 16:05:28 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:05:28 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:05:28 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:05:29 [error] [exception.CException] exception 'CException' with message 'CWebApplication and its behaviors do not have a method or closure named "trace".' in /Applications/MAMP/htdocs/server/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(145): CComponent->__call('trace', Array)
+#1 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(145): CWebApplication->trace('all done')
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(123): SiteController->reverseGeocode('51.015065899999...')
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): CController->run('fsa')
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/fsa')
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/server/index.php?r=site/fsa
+HTTP_REFERER=http://localhost:8888/server/index.php?r=site/fsa
+---
+2012/12/17 16:06:57 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:06:57 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:06:57 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:07:27 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:07:27 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:07:27 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:07:32 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:07:32 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:07:32 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:08:08 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:08:08 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:08:08 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:08:48 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:08:48 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:08:48 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:09:10 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:09:10 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:09:10 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:09:34 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:09:34 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:09:34 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:18:16 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:18:16 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:18:16 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:26:50 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:26:50 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:26:50 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:27:07 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:27:07 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:27:07 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:27:32 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:27:32 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:27:32 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:28:03 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:28:03 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:28:03 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:46:57 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:46:57 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:46:57 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:47:33 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:47:33 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:47:33 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:48:05 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:48:05 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:48:05 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:49:10 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:49:10 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:49:10 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:49:32 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:49:32 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:49:32 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:50:47 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:50:47 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:50:47 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:51:22 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:51:22 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:51:22 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:59:31 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:59:31 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:59:31 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:59:57 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:59:57 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 16:59:57 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:00:32 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:00:32 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:00:32 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:01:09 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:01:09 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:01:09 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:02:04 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:02:04 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:02:04 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:03:42 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:03:42 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:03:42 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:04:16 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:04:16 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:04:16 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:05:05 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:05:05 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:05:05 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:05:51 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:05:51 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:05:51 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:07:34 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:07:34 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:07:34 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:08:50 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:08:50 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:08:50 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:08:57 [error] [php] Undefined offset: 1 (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:163)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (163)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:09:34 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:09:34 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:09:34 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:09:59 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:09:59 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:09:59 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:10:57 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:10:57 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:10:57 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:13:10 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:13:10 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:13:10 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:13:10 [error] [php] Undefined variable: locality (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:141)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (141)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:13:41 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:13:41 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:13:41 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:13:48 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:163) (/Applications/MAMP/htdocs/server/yii/framework/web/CHttpRequest.php:763)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(1044): SiteController->redirect()
+#1 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(167): SiteController->refresh()
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(123): SiteController->reverseGeocode()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (167)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:15:15 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:15:15 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:15:15 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:15:22 [error] [php] Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:165) (/Applications/MAMP/htdocs/server/yii/framework/web/CHttpRequest.php:763)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(1044): SiteController->redirect()
+#1 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(169): SiteController->refresh()
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(123): SiteController->reverseGeocode()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (169)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:18:03 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:18:03 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:18:03 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:18:45 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:18:45 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:18:45 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:22:26 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:22:26 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:22:26 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:22:57 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:22:57 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:22:57 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:23:28 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:23:28 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:23:28 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:24:33 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:24:33 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:24:33 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:26:20 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:26:20 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:26:20 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:27:02 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:27:02 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/17 17:27:02 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
