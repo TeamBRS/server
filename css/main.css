@@ -32,6 +32,15 @@ body
 	padding: 20px 20px 20px 0;
 }
 
+#map 
+{
+	height: 360px;
+	width: 480px;
+	position: absolute;
+	top: 200px;
+	left: 550px;
+}
+
 #footer
 {
 	padding: 10px;
