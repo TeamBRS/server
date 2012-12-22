@@ -23,10 +23,11 @@ class FSAModel extends CFormModel
 	public function rules()
 	{
 		return array(
-			// username and password are required
-			array('location', 'required'),
-			// rememberMe needs to be a boolean
-			array('socialfeeds', 'boolean'),
+			array('location', 'safe'),
+			array('minrating','safe'),
+			array('cuisine','safe'),
+			array('venue','safe'),
+			array('socialfeeds', 'safe'),
 		);
 	}
 	
@@ -58,8 +59,8 @@ class FSAModel extends CFormModel
 		
 		$xml = simplexml_load_file($querystring);
 		
-		$locality = $xml->result->address_component[2]->long_name;
-		$adminarea = $xml->result->address_component[3]->long_name;
+		$locality = $xml->result[4]->address_component[1]->long_name;
+		$adminarea = $xml->result[7]->address_component[1]->long_name;
 		
 		$xmlstring = "<h3>You are in ".$locality.", ".$adminarea."</h3>";
 		
@@ -72,7 +73,7 @@ class FSAModel extends CFormModel
 		//Construct FSA Listings
 	
 		$xmlrest = $xmlrests->EstablishmentCollection;
-		
+				
 		foreach($xmlrest->EstablishmentDetail as $child)
 		{
 			//have to remove exponent and change to gmap format
@@ -80,8 +81,11 @@ class FSAModel extends CFormModel
 			$longArr = explode('e', $child->Geocode->Longitude);
 						
 			//convert string coords to longs
+						
 			$lat = 10*$latArr[0];
 			$long = $longArr[0]/10;
+			$latArr = array();
+			$longArr = array();
 		
 			//gather rest of establishment details
 			$this->locmarkers[] = $lat . "," . $long;
@@ -91,8 +95,36 @@ class FSAModel extends CFormModel
 			$this->businessrating[] = $child->RatingValue;
 							
 		}
-		
-		return $xmlstring;
+	}
+	
+	public function RefineResults() 
+	{
+		//Temporary while we are not storing in db.
+	
+		$min = $this->minrating;
+	
+		for($i=0; $i < count($this->businessname); $i++) {
+			//refine according to each search criteria
+			$br = $this->businessrating[$i];
+			if (!empty($min)) {
+				if($br < $min) {
+					//remove record
+					unset($this->locmarkers[$i]);
+					unset($this->businessname[$i]);
+					unset($this->businesstype[$i]);
+					unset($this->businessaddr1[$i]);
+					unset($this->businessrating[$i]);
+					
+					//normalize array indices
+					$this->locmarkers = array_values($this->locmarkers);
+					$this->businessname = array_values($this->businessname);
+					$this->businesstype = array_values($this->businesstype);
+					$this->businessaddr1 = array_values($this->businessaddr1);
+					$this->businessrating = array_values($this->businessrating);
+				}
+			}
+			
+		}
 	}
 	
 }

@@ -110,6 +110,8 @@ class SiteController extends Controller
 	
 	public function actionFSA()
 	{
+		if(Yii::app()->user->getId()===null)
+            $this->redirect(array('site/login'));
 	
 		$model=new FSAModel;
 		
@@ -118,15 +120,24 @@ class SiteController extends Controller
 		
 			$model->attributes=$_POST['FSAModel'];
 			
+			//Get attributes
 			$loc = $model->location;
+			
+			//Reverse geocode and get results
 			$latlong = explode(", ", $loc);
 			$data = $model->ReverseGeocode($loc);
+			
+			//Refine results
+			$data = $model->RefineResults();
+
+			//Assign results
 			$locmarkers = $model->locmarkers;
 			$bname = $model->businessname;
 			$btype = $model->businesstype;
 			$baddr1 = $model->businessaddr1;
 			$brate = $model->businessrating;
-			
+						
+			//Render results in result.php
 			$this->render('result',array('results'=>$data, 
 			'loc'=>$latlong, 'markers'=>$locmarkers, 'bname'=>$bname,
 			'btype'=>$btype,'baddr1'=>$baddr1,'brate'=>$brate));

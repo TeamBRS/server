@@ -37,8 +37,19 @@ body
 	height: 360px;
 	width: 480px;
 	position: absolute;
-	top: 200px;
+	top: 150px;
 	left: 550px;
+}
+
+#reviewsinfo
+{
+	border: 1px solid #C9E0ED;
+	height: 380px;
+	width: 480px;
+	position: absolute;
+	top: 550px;
+	left: 550px;
+	
 }
 
 #footer

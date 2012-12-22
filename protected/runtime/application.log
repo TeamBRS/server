@@ -3486,3 +3486,506 @@ in /Applications/MAMP/htdocs/server/index.php (13)
 2012/12/19 22:30:13 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
 in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
 in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:02:10 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:02:10 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:02:10 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:08:28 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:08:28 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:08:28 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:08:34 [error] [php] Undefined variable: lat (/Applications/MAMP/htdocs/server/protected/models/FSAModel.php:84)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (84)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:09:05 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:09:05 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:09:05 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:11:19 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:11:19 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:11:19 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:12:58 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:12:58 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:12:58 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:15:35 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:15:35 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:15:35 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:17:04 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:17:04 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:17:04 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:17:04 [error] [php] Trying to get property of non-object (/Applications/MAMP/htdocs/server/protected/models/FSAModel.php:61)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (61)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:30:16 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:30:16 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:30:16 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:30:16 [error] [php] Trying to get property of non-object (/Applications/MAMP/htdocs/server/protected/models/FSAModel.php:61)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (61)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (123)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:30:29 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:30:29 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:30:29 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:36:51 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:36:51 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:36:51 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:58:17 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:58:17 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:58:17 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:59:42 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:59:42 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:59:42 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:59:49 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:59:49 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 16:59:49 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:01:03 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:01:03 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:01:03 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:01:46 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:01:46 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:01:46 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:01:46 [error] [php] Undefined offset: 1 (/Applications/MAMP/htdocs/server/protected/models/FSAModel.php:51)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (51)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (127)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:03:53 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:03:53 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:03:53 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:05:07 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:05:07 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:05:07 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:05:32 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:05:32 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:05:32 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:11:08 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:11:08 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:11:08 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:22:37 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:22:37 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:23:30 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:23:30 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:24:07 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:24:07 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:24:13 [error] [php] Undefined variable: min (/Applications/MAMP/htdocs/server/protected/models/FSAModel.php:101)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (101)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (130)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:24:26 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:24:26 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:25:07 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:25:07 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:25:42 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:25:42 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:25:47 [error] [php] Undefined variable: minr (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:129)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#4 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#5 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (129)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:29:17 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:29:17 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:29:23 [error] [php] Undefined variable: minr (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:129)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#4 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#5 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (129)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:29:28 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:29:28 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:29:34 [error] [php] Undefined variable: minr (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:129)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#4 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#5 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (129)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:29:59 [warning] [application] Failed to set unsafe attribute "minrating" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:29:59 [warning] [application] Failed to set unsafe attribute "cuisine" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:29:59 [warning] [application] Failed to set unsafe attribute "venue" of "FSAModel".
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (119)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:30:11 [error] [php] Undefined variable: minr (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:129)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#4 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#5 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (129)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:31:07 [error] [php] Undefined variable: minr (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:129)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#4 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#5 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (129)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:33:01 [error] [php] Undefined variable: minr (/Applications/MAMP/htdocs/server/protected/controllers/SiteController.php:129)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#4 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#5 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (129)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:54:08 [error] [php] Use of undefined constant locmarkers - assumed 'locmarkers' (/Applications/MAMP/htdocs/server/protected/models/FSAModel.php:107)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (107)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (129)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:57:57 [error] [exception.CException] exception 'CException' with message 'Property "FSAModel.usinessname" is not defined.' in /Applications/MAMP/htdocs/server/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/protected/models/FSAModel.php(113): CComponent->__get('usinessname')
+#1 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(129): FSAModel->RefineResults()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): CController->run('fsa')
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/fsa')
+#8 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /Applications/MAMP/htdocs/server/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/server/index.php?r=site/fsa
+HTTP_REFERER=http://localhost:8888/server/index.php?r=site/fsa
+---
+2012/12/22 17:58:24 [error] [php] Undefined offset: 0 (/Applications/MAMP/htdocs/server/protected/views/site/result.php:79)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(870): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(783): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(141): SiteController->render()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/views/site/result.php (79)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (141)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 17:59:12 [error] [php] Undefined offset: 0 (/Applications/MAMP/htdocs/server/protected/views/site/result.php:79)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(870): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(783): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(141): SiteController->render()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/views/site/result.php (79)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (141)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 18:01:12 [error] [php] Undefined offset: 0 (/Applications/MAMP/htdocs/server/protected/views/site/result.php:79)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(870): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(783): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(141): SiteController->render()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/views/site/result.php (79)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (141)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 18:02:39 [error] [php] Undefined offset: 0 (/Applications/MAMP/htdocs/server/protected/views/site/result.php:79)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(870): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(783): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(141): SiteController->render()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/views/site/result.php (79)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (141)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 18:03:30 [error] [php] Undefined offset: 0 (/Applications/MAMP/htdocs/server/protected/models/FSAModel.php:120)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#5 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (120)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (129)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 18:13:13 [error] [php] Undefined offset: 0 (/Applications/MAMP/htdocs/server/protected/views/site/result.php:79)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(870): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(783): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(141): SiteController->render()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/views/site/result.php (79)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (141)
+in /Applications/MAMP/htdocs/server/index.php (13)
+2012/12/22 18:47:13 [error] [php] Undefined variable: rate (/Applications/MAMP/htdocs/server/protected/views/site/result.php:95)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(870): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(783): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(141): SiteController->render()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/views/site/result.php (95)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (141)
+in /Applications/MAMP/htdocs/server/index.php (13)

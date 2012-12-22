@@ -57,7 +57,7 @@ DISTANCE (ordered nearest/furthest)
     <br />
     <div class="row">
 		  <h2><?php echo $form->labelEx($model,'minrating'); ?></h2>
-		  <?php echo $form->radioButtonList($model,'minrating', array('1'=>'1 Star','2'=>'2 Star','3'=>'3 Star','4'=>'4 Star','5'=>'5 Star'), array('separator'=>' ')); ?>
+		  <?php echo $form->radioButtonList($model,'minrating', array('1'=>'1 Star','2'=>'2 Star','3'=>'3 Star','4'=>'4 Star','5'=>'5 Star'), array('separator'=>' ', 'uncheckValue'=>null)); ?>
           <p class="hint">Don't get caught out by poor restaurant standards!</p>
     </div>
     <br />
