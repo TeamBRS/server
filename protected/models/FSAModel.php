@@ -131,6 +131,7 @@ class FSAModel extends CFormModel
 	}
 	
 	public function commitDB() {
+	
 		//get current user id, this state should only occur when a user has logged in.
 		$user_id = Yii::app()->user->id;
 		//fix location delimiter 
@@ -141,17 +142,15 @@ class FSAModel extends CFormModel
 	
 		//define sql query for committing information
 		$sql1="INSERT INTO tbl_query_history (userid, timestamp, location, minrating, cuisinepref, socialpref) VALUES ";
-		$sql2="(".$user_id.",".date("Y-m-d H:i:s").",".$loc.",".$this->minrating.",".implode("@", $this->cuisine).",".implode("@", $this->socialfeeds).");";
+		$sql2="('".$user_id."','".date("Y-m-d H:i:s")."','".$loc."','".$this->minrating."','".implode("@", $this->cuisine)."','".implode("@", $this->socialfeeds)."');";
+		//test sql query statement                                                                      
 		$sqltest="SELECT * FROM tbl_query_history;";
 		
 		
 		$conn=Yii::app()->db;
-		$comm=$conn->createCommand($sqltest);
-		$rowCount=$comm->query();
+		$comm=$conn->createCommand($sql1.$sql2);
+		$rowCount=$comm->execute();
 		
-		$results = $rowCount->readAll();
-		
-		print_r($results);
 	}
 	
 }

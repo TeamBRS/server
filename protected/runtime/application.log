@@ -4405,3 +4405,68 @@ REQUEST_URI=/server/index.php?r=site/fsa
 in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (151)
 in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (129)
 in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (131)
+2012/12/25 15:29:48 [error] [system.db.CDbCommand] Error in preparing SQL: INSERT INTO tbl_query_history (userid, timestamp, location, minrating, cuisinepref, socialpref) VALUES (Bernie,2012-12-25 15:29:48,51.015060999999996@ -0.347186,3,1,1);
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (150)
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (129)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (131)
+2012/12/25 15:29:48 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "15": syntax error. The SQL statement executed was: INSERT INTO tbl_query_history (userid, timestamp, location, minrating, cuisinepref, socialpref) VALUES (Bernie,2012-12-25 15:29:48,51.015060999999996@ -0.347186,3,1,1);.
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (150)
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (129)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (131)
+2012/12/25 15:29:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "15": syntax error. The SQL statement executed was: INSERT INTO tbl_query_history (userid, timestamp, location, minrating, cuisinepref, socialpref) VALUES (Bernie,2012-12-25 15:29:48,51.015060999999996@ -0.347186,3,1,1);' in /Applications/MAMP/htdocs/server/yii/framework/db/CDbCommand.php:354
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/protected/models/FSAModel.php(150): CDbCommand->execute()
+#1 /Applications/MAMP/htdocs/server/protected/models/FSAModel.php(129): FSAModel->commitDB()
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(131): FSAModel->RefineResults()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): CController->run('fsa')
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/fsa')
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/server/index.php?r=site/fsa
+HTTP_REFERER=http://localhost:8888/server/index.php?r=site/fsa
+---
+2012/12/25 15:33:36 [error] [system.db.CDbCommand] Error in preparing SQL: INSERT INTO tbl_query_history (userid, timestamp, location, minrating, cuisinepref, socialpref) VALUES (Bernie,2012-12-25,51.015060999999996@ -0.347186,3,1,1);
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (150)
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (129)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (131)
+2012/12/25 15:33:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 unrecognized token: "@". The SQL statement executed was: INSERT INTO tbl_query_history (userid, timestamp, location, minrating, cuisinepref, socialpref) VALUES (Bernie,2012-12-25,51.015060999999996@ -0.347186,3,1,1);.
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (150)
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (129)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (131)
+2012/12/25 15:33:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 unrecognized token: "@". The SQL statement executed was: INSERT INTO tbl_query_history (userid, timestamp, location, minrating, cuisinepref, socialpref) VALUES (Bernie,2012-12-25,51.015060999999996@ -0.347186,3,1,1);' in /Applications/MAMP/htdocs/server/yii/framework/db/CDbCommand.php:354
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/protected/models/FSAModel.php(150): CDbCommand->execute()
+#1 /Applications/MAMP/htdocs/server/protected/models/FSAModel.php(129): FSAModel->commitDB()
+#2 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(131): FSAModel->RefineResults()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): CController->run('fsa')
+#8 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/fsa')
+#9 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Applications/MAMP/htdocs/server/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/server/index.php?r=site/fsa
+HTTP_REFERER=http://localhost:8888/server/index.php?r=site/fsa
+---
+2012/12/25 16:49:19 [error] [php] implode(): Invalid arguments passed (/Applications/MAMP/htdocs/server/protected/models/FSAModel.php:144)
+Stack trace:
+#0 /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php(131): FSAModel->RefineResults()
+#1 /Applications/MAMP/htdocs/server/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionFSA()
+#2 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#3 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(287): SiteController->runAction()
+#4 /Applications/MAMP/htdocs/server/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#5 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(283): SiteController->run()
+#6 /Applications/MAMP/htdocs/server/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#7 /Applications/MAMP/htdocs/server/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /Applications/MAMP/htdocs/server/index.php(13): CWebApplication->run()
+REQUEST_URI=/server/index.php?r=site/fsa
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (144)
+in /Applications/MAMP/htdocs/server/protected/models/FSAModel.php (129)
+in /Applications/MAMP/htdocs/server/protected/controllers/SiteController.php (131)

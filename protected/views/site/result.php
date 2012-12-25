@@ -9,28 +9,41 @@ $this->breadcrumbs=array(
 ?>
 <!--Do not change!-->
 <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAV_5YynruTjKV72VGPuo8Jx2CMwFNlmo&sensor=true">
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAV_5YynruTjKV72VGPuo8Jx2CMwFNlmo&sensor=true">
+</script>
+<script type="text/javascript" 
+	src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true">
 </script>
 
 
 <script type="text/javascript">
     var lat = <?php echo json_encode($loc[0]); ?>;
     var lng = <?php echo json_encode($loc[1]); ?>;
+    var local;
     var map;
+    var refstring;
+    var results = new Array();
     var places = new Array();
     var bnames = new Array();
     var baddr1 = new Array();
     var btype = new Array();
     
       function initialize() {
+      
+      	local = new google.maps.LatLng(lat, lng);
+      
         var mapOptions = {
-          center: new google.maps.LatLng(lat, lng),
+          center: local,
           zoom: 13,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
+        
         map = new google.maps.Map(document.getElementById("map"),
             mapOptions);
+            
+            
         plotFSAMarkers();
+        
       }
       
       function addMarker(location,bname) {
@@ -46,6 +59,15 @@ $this->breadcrumbs=array(
 		
 		google.maps.event.addListener(marker, 'click', function() {
   			marker.info.open(map, marker);
+  			
+  			//Google maps place request
+  			var request1 = {
+    			bounds: map.getBounds(),
+    			name: 'wabi'
+  			};
+  			
+  			service = new google.maps.places.PlacesService(map);
+ 		    service.radarSearch(request1, callback);
 		});
       }
       
@@ -53,12 +75,13 @@ $this->breadcrumbs=array(
       	var latArr = new Array();
       	var longArr = new Array();
       	var tempArr = new Array();
+      	service = new google.maps.places.PlacesService(map);
       	      	
 		for (var i = 0; i < places.length; i++)
 		{
-		
+			var a = JSON.stringify(bnames[i]).split('"');
 			var loc = JSON.stringify(bnames[i])+'<br />'+JSON.stringify(baddr1[i])+'<br />'+JSON.stringify(btype[i]);
-			
+				
 			tempArr = places[i].split(',');
 			latArr[i] = tempArr[0];
 			longArr[i] = tempArr[1];
@@ -67,7 +90,29 @@ $this->breadcrumbs=array(
 			
         	addMarker(Mk,loc);
 		}
+		      
+      }
       
+      function callback(results, status) {
+      	if(status ==  google.maps.places.PlacesServiceStatus.OK) {
+      		for (var i = 0; i < results.length; i++) {
+      			refstring = results[i].reference;
+      		}
+      	} else {
+      		alert(status);
+      	}
+      	  			  			
+  			//Google maps place detail request
+  			var request2 = {
+  				reference: refstring
+  			};
+  			  			
+  			service = new google.maps.places.PlacesService(map);
+  			  			
+  			service.getDetails(request2, function(details, status) {
+        		fp = details.photos;
+        		alert(fp.length);
+    		})
       }
       
       
