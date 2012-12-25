@@ -125,6 +125,33 @@ class FSAModel extends CFormModel
 			}
 			
 		}
+	
+		$this->commitDB();
+	
+	}
+	
+	public function commitDB() {
+		//get current user id, this state should only occur when a user has logged in.
+		$user_id = Yii::app()->user->id;
+		//fix location delimiter 
+		$loc = explode(",", $this->location);
+		$loc = implode("@", $loc);
+		
+		echo $user_id;
+	
+		//define sql query for committing information
+		$sql1="INSERT INTO tbl_query_history (userid, timestamp, location, minrating, cuisinepref, socialpref) VALUES ";
+		$sql2="(".$user_id.",".date("Y-m-d H:i:s").",".$loc.",".$this->minrating.",".implode("@", $this->cuisine).",".implode("@", $this->socialfeeds).");";
+		$sqltest="SELECT * FROM tbl_query_history;";
+		
+		
+		$conn=Yii::app()->db;
+		$comm=$conn->createCommand($sqltest);
+		$rowCount=$comm->query();
+		
+		$results = $rowCount->readAll();
+		
+		print_r($results);
 	}
 	
 }
