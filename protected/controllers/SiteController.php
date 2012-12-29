@@ -108,6 +108,13 @@ class SiteController extends Controller
 		$this->render('contact',array('model'=>$model));
 	}
 	
+	public function actionAjax()
+	{
+		//$val1 = $_POST['mk'];
+		//echo($val[0]);
+		$this->renderPartial('resultdetail', array(), false, true);
+	}
+	
 	public function actionFSA()
 	{
 		if(Yii::app()->user->getId()===null)
@@ -137,9 +144,11 @@ class SiteController extends Controller
 			$baddr1 = $model->businessaddr1;
 			$brate = $model->businessrating;
 						
+			$data2=array();
+			$data2["myValue"]="content 2";
 			//Render results in result.php
 			$this->render('result',array('results'=>$data, 
-			'loc'=>$latlong, 'markers'=>$locmarkers, 'bname'=>$bname,
+			'loc'=>$latlong, 'test'=>$data2,'markers'=>$locmarkers, 'bname'=>$bname,
 			'btype'=>$btype,'baddr1'=>$baddr1,'brate'=>$brate));
 						
 		} else {

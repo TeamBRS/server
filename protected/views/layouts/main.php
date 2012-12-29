@@ -19,6 +19,12 @@
 </head>
 
 <body>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+</script>
+<div id="loading">
+  <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." />
+</div>
 
 <div class="container" id="page">
 
@@ -55,6 +61,10 @@
 	</div><!-- footer -->
 
 </div><!-- page -->
-
+<script language="javascript" type="text/javascript">
+  $(window).load(function() {
+    $('#loading').hide();
+  });
+</script>
 </body>
 </html>

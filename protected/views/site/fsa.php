@@ -43,44 +43,38 @@ DISTANCE (ordered nearest/furthest)
 -->
 
 <div class="form">
-<?php $form=$this->beginWidget('CActiveForm', array(
+
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'fsa-form',
 	'enableClientValidation'=>true,
+	'htmlOptions'=>array('class'=>'well'),
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
 	),
 )); ?>
-	<div class="row">
-		  <h2><?php echo $form->labelEx($model,'location'); ?></h2>
-		  <?php echo $form->textField($model,'location',array('id'=>'loc_id', 'onclick'=>'getLocation()', 'class'=>'ext')); ?>
-    </div>
+		  <?php echo $form->textFieldRow($model,'location',array('id'=>'loc_id', 'onclick'=>'getLocation()', 'class'=>'ext')); ?>
     <br />
-    <div class="row">
 		  <h2><?php echo $form->labelEx($model,'minrating'); ?></h2>
 		  <?php echo $form->radioButtonList($model,'minrating', array('1'=>'1 Star','2'=>'2 Star','3'=>'3 Star','4'=>'4 Star','5'=>'5 Star'), array('separator'=>' ', 'uncheckValue'=>null)); ?>
-          <p class="hint">Don't get caught out by poor restaurant standards!</p>
-    </div>
     <br />
-    <div class="row">
 		  <h2><?php echo $form->labelEx($model,'cuisine'); ?></h2>
 		  <?php echo $form->checkBoxList($model,'cuisine', array(0=>'English',1=>'Greek',2=>'Chinese',3=>'Indian',4=>'Fast Food',5=>'Light Bites'), array('separator'=>' ')); ?>
-          <p class="hint">What do you fancy?</p>
-    </div>
     <br />
-    <div class="row">
 		  <h2><?php echo $form->labelEx($model,'venue'); ?></h2>
 		  <?php echo $form->checkBoxList($model,'venue', array(0=>'Restaurant',1=>'Pub/Bar',2=>'Cafe',3=>'Outlet',4=>'Canteen',5=>'Takeaway'), array('separator'=>' ')); ?>
-          <p class="hint">Where do you fancy it?</p>
-    </div>
     <br />
-    <div class="row">
 		  <h2><?php echo $form->labelEx($model,'socialfeeds'); ?></h2>
-		  <?php echo $form->checkBoxList($model,'socialfeeds', array(0=>'Facebook',1=>'Twitter',2=>'TripAdvisor'), array('separator'=>' ')); ?>
-          <p class="hint">Find out what others are saying.</p>
-    </div>
-    <div class="row buttons">
-		<?php echo CHtml::submitButton('Find me food!'); ?>
-	</div>
+		  <?php echo $form->checkBoxList($model,'socialfeeds', array(0=>'Facebook',1=>'Twitter',2=>'Google+'), array('separator'=>' ')); ?>
+
+<br />
+
+<?php $this->widget('bootstrap.widgets.TbButton', array(
+    'label'=>'Find me food!',
+    'type'=>'primary', // null, 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+    'size'=>'large', // null, 'large', 'small' or 'mini'
+	'buttonType'=>'submit',
+)); ?>
+
 <?php $this->endWidget(); ?>
 </div>
 

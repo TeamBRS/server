@@ -6,6 +6,8 @@ $this->pageTitle=Yii::app()->name . ' - Results';
 $this->breadcrumbs=array(
 	'Results',
 );
+require_once(dirname(__FILE__)."/../../lib/OAuth.php");
+	
 ?>
 <!--Do not change!-->
 <script type="text/javascript"
@@ -13,6 +15,9 @@ $this->breadcrumbs=array(
 </script>
 <script type="text/javascript" 
 	src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true">
+</script>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
 </script>
 
 
@@ -63,7 +68,7 @@ $this->breadcrumbs=array(
   			//Google maps place request
   			var request1 = {
     			bounds: map.getBounds(),
-    			name: 'wabi'
+    			name: 'Haldi'
   			};
   			
   			service = new google.maps.places.PlacesService(map);
@@ -117,8 +122,48 @@ $this->breadcrumbs=array(
       
       
 </script>
+
 <!--Do not change-->
 <div>
+<div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Your History</li>
+              <li class="active"><a href="#">Current Query</a></li>
+              <li><a href="#">Chinese & Indian</a></li>
+              <li><a href="#">Greek Pubs</a></li>
+              <li class="active"><a href="#">Recommendations</a></li>
+			  <li><a href="#">Haldi Southwater</a></li>
+			  <li><a href="#">London Road, Horsham</a></li>
+              <li class="nav-header">Range</li>
+              <li><a href="#">1-10 miles</a></li>
+              <li><a href="#">10-20 miles</a></li>
+              <li><a href="#">30+ miles</a></li>
+           </ul>
+           <hr>
+            <ul class="nav nav-list">
+              <li class="nav-header">Your History</li>
+              <li class="active"><a href="#">Current Query</a></li>
+              <li><a href="#">Chinese & Indian</a></li>
+              <li><a href="#">Greek Pubs</a></li>
+              <li class="active"><a href="#">Recommendations</a></li>
+			  <li><a href="#">Haldi Southwater</a></li>
+			  <li><a href="#">London Road, Horsham</a></li>
+              <li class="nav-header">Range</li>
+              <li><a href="#">1-10 miles</a></li>
+              <li><a href="#">10-20 miles</a></li>
+              <li><a href="#">30+ miles</a></li>
+           </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        
+        <div class="span9">
+          <div class="leaderboard">
+          <div id='map' style='width:100%; height:360px'></div>
+          </div>
+
 <!--Process results array from model-->
 <?php
 		
@@ -126,12 +171,15 @@ $this->breadcrumbs=array(
 	
 	for ($i = 0; $i < count($bname); $i++) {
 	
-		echo "</br><h4><a href = '#' onclick='getReviews()'>".$bname[$i]."</a></h4>";
+	    echo "<div class='row-fluid'>";
+	    echo "<div class='span4'>";
+		echo "<h4><a href = '#myModal' data-toggle='modal'>".$bname[$i]."</a></h4>";
 		echo $btype[$i]."</br>";
 		echo $baddr1[$i]."</br>";
 		echo "Rating: " .$brate[$i]."</br>";
 		
 		//FSA Image rating loader
+		?><p><?
 		switch($brate[$i]) {
 		
 			case "0": ?><img src="././fsaimages/fhrs_0_en-gb.jpg" alt="0"/><? break;
@@ -146,11 +194,10 @@ $this->breadcrumbs=array(
 			
 		}
 
-		?>
+		?></p>
 		
-		<div id="reviewsinfo"></div>
-		
-		<br />
+		</div>
+				
 		<script type = "text/javascript">		
 			places[<?php echo json_encode($i); ?>] = <?php echo json_encode($markers[$i]); ?>;
 			bnames[<?php echo json_encode($i); ?>] = <?php echo json_encode($bname[$i]); ?>;
@@ -158,12 +205,51 @@ $this->breadcrumbs=array(
 			btype[<?php echo json_encode($i); ?>] = <?php echo json_encode($btype[$i]); ?>;
 		</script>
 		<?
-	
+		
 	}
 	
 	
 ?>
-<div id="map" style="width:480px; height:360px"></div>
-<script type="text/javascript">initialize();</script>
-
 </div>
+<script type='text/javascript'>initialize();</script>
+</div>
+
+<div id="forAjaxRefresh"></div>
+ 
+<?php echo CHtml::ajaxLink('clickMe', array('ajax'), array('update'=>'#forAjaxRefresh', 'data'=>array('mk'=>'1')));?>
+
+<?php $this->beginWidget('bootstrap.widgets.TbModal', array('id'=>'myModal')); ?>
+ 
+<div class="modal-header">
+    <a class="close" data-dismiss="modal">&times;</a>
+    <h4>Should I eat at </h4>
+</div>
+ 
+<div class="modal-body">
+    <p>One fine body...</p>
+</div>
+ 
+<div class="modal-footer">
+    <?php $this->widget('bootstrap.widgets.TbButton', array(
+        'type'=>'primary',
+        'label'=>'Save changes',
+        'url'=>'#',
+        'htmlOptions'=>array('data-dismiss'=>'modal'),
+    )); ?>
+    <?php $this->widget('bootstrap.widgets.TbButton', array(
+        'label'=>'Close',
+        'url'=>'#',
+        'htmlOptions'=>array('data-dismiss'=>'modal'),
+    )); ?>
+</div>
+ 
+<?php $this->endWidget(); ?>
+
+<?php
+
+//Populate sidebar 2 with relevant information.
+
+?>
+
+
+
