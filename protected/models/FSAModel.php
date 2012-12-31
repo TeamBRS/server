@@ -45,15 +45,11 @@ class FSAModel extends CFormModel
 		);
 	}
 	
-	public function ReverseGeocode($location) 
+	public function ReverseGeocode($location, $venue) 
 	{
 	
 		$latlong = explode(", ", $location);
 		$querystring = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=".$latlong[0].",".$latlong[1]."&sensor=true";
-		$fsastringr = "http://ratings.food.gov.uk/enhanced-search/en-GB/^/^/DISTANCE/1/^/".$latlong[1]."/".$latlong[0]."/1/5/xml";
-		$fsastringp = "http://ratings.food.gov.uk/enhanced-search/en-GB/^/^/DISTANCE/8/^/".$latlong[1]."/".$latlong[0]."/1/5/xml";
-		$fsastringt = "http://ratings.food.gov.uk/enhanced-search/en-GB/^/^/DISTANCE/10/^/".$latlong[1]."/".$latlong[0]."/1/5/xml";
-	
 
 		//Get xml data using CURL
 		
@@ -62,17 +58,24 @@ class FSAModel extends CFormModel
 		$locality = $xml->result[4]->address_component[1]->long_name;
 		$adminarea = $xml->result[7]->address_component[1]->long_name;
 		
-		$xmlstring = "<h3>You are in ".$locality.", ".$adminarea."</h3>";
+		//Get FSA Listing
 		
-		//Get FSA Listings
+		switch($venue) {
 		
-		$xmlrests = simplexml_load_file($fsastringr);
-		$xmlpubs = simplexml_load_file($fsastringp);
-		$xmltakes = simplexml_load_file($fsastringt);
+			case 0: $fsastring = "http://ratings.food.gov.uk/enhanced-search/en-GB/^/^/DISTANCE/1/^/".$latlong[1]."/".$latlong[0]."/1/10/xml"; break;
+			case 1: $fsastring = "http://ratings.food.gov.uk/enhanced-search/en-GB/^/^/DISTANCE/8/^/".$latlong[1]."/".$latlong[0]."/1/10/xml"; break;
+			case 2: $fsastring = "http://ratings.food.gov.uk/enhanced-search/en-GB/^/^/DISTANCE/1/^/".$latlong[1]."/".$latlong[0]."/1/10/xml"; break;
+			case 3: $fsastring = "http://ratings.food.gov.uk/enhanced-search/en-GB/^/^/DISTANCE/1/^/".$latlong[1]."/".$latlong[0]."/1/10/xml"; break;
+			case 4: $fsastring = "http://ratings.food.gov.uk/enhanced-search/en-GB/^/^/DISTANCE/1/^/".$latlong[1]."/".$latlong[0]."/1/10/xml"; break;
+			case 5: $fsastring = "http://ratings.food.gov.uk/enhanced-search/en-GB/^/^/DISTANCE/10/^/".$latlong[1]."/".$latlong[0]."/1/10/xml"; break;
+			default: $fsastring = "null";break;
+		}
+		
+		$xmlestab = simplexml_load_file($fsastring);
 		
 		//Construct FSA Listings
 	
-		$xmlrest = $xmlrests->EstablishmentCollection;
+		$xmlrest = $xmlestab->EstablishmentCollection;
 				
 		foreach($xmlrest->EstablishmentDetail as $child)
 		{
@@ -95,18 +98,27 @@ class FSAModel extends CFormModel
 			$this->businessrating[] = $child->RatingValue;
 							
 		}
+		
 	}
 	
 	public function RefineResults() 
 	{
 		//Temporary while we are not storing in db.
 	
-		$min = $this->minrating;
+		$min = (int) $this->minrating;
+		
+		foreach ($this->businessrating as $key => $value) {
+    		if ($value < $min) {
+        		unset($this->businessrating[$key]);
+        		$this->businessrating = array_values($this->businessrating);
+			}
+		}
+		
+		echo count($this->businessrating);
 	
-		for($i=0; $i < count($this->businessname); $i++) {
+		for($i=0; $i < count($this->businessrating); $i++) {
 			//refine according to each search criteria
-			$br = $this->businessrating[$i];
-			if (!empty($min)) {
+			$br = (int) $this->businessrating[$i];
 				if($br < $min) {
 					//remove record
 					unset($this->locmarkers[$i]);
@@ -122,10 +134,8 @@ class FSAModel extends CFormModel
 					$this->businessaddr1 = array_values($this->businessaddr1);
 					$this->businessrating = array_values($this->businessrating);
 				}
-			}
 			
 		}
-	
 		$this->commitDB();
 	
 	}

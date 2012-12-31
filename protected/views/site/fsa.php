@@ -18,7 +18,11 @@ $this->breadcrumbs=array(
 <?php else: ?>
 
 <h2>Look for what you're after!</h2>
-<h4>Let us know what you want and we'll show you where to go and where to avoid!<h4>
+<h4>Let us know what you want and we'll show you where to go and where to avoid!</h4>
+
+<div class="alert alert-info">
+<b>Instructions</b> Fill out the form below to begin developing the preferences for your profile!
+</div>
 
 <!--FSA Search Form, will eventually be based on UM options -->
 <!--Only has access to business types with following ID:
@@ -61,7 +65,7 @@ DISTANCE (ordered nearest/furthest)
 		  <?php echo $form->checkBoxList($model,'cuisine', array(0=>'English',1=>'Greek',2=>'Chinese',3=>'Indian',4=>'Fast Food',5=>'Light Bites'), array('separator'=>' ')); ?>
     <br />
 		  <h2><?php echo $form->labelEx($model,'venue'); ?></h2>
-		  <?php echo $form->checkBoxList($model,'venue', array(0=>'Restaurant',1=>'Pub/Bar',2=>'Cafe',3=>'Outlet',4=>'Canteen',5=>'Takeaway'), array('separator'=>' ')); ?>
+		  <?php echo $form->radioButtonList($model,'venue', array(0=>'Restaurant',1=>'Pub/Bar',2=>'Cafe',3=>'Outlet',4=>'Canteen',5=>'Takeaway'), array('separator'=>' ')); ?>
     <br />
 		  <h2><?php echo $form->labelEx($model,'socialfeeds'); ?></h2>
 		  <?php echo $form->checkBoxList($model,'socialfeeds', array(0=>'Facebook',1=>'Twitter',2=>'Google+'), array('separator'=>' ')); ?>

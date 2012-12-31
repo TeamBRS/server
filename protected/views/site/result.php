@@ -2,6 +2,12 @@
 /* @var $this SiteController */
 /* @var $model FSAModel */
 
+/*--- RESULT.PHP Script ---
+ This script contains javascript sections for rendering of GMAP apiVersion
+ and ajax calls as well as php retrieval from yii model framework. Currently
+ quite messy but will be cleaned up
+*/
+
 $this->pageTitle=Yii::app()->name . ' - Results';
 $this->breadcrumbs=array(
 	'Results',
@@ -20,8 +26,41 @@ require_once(dirname(__FILE__)."/../../lib/OAuth.php");
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
 </script>
 
+<script type="text/javascript">
+
+	//-- JQuery Specific Scripts --
+
+	function toggleSlider() {
+	
+    if ($("#panelslider").is(":visible")) {
+        $("#contentslider").animate(
+            {
+                opacity: "0"
+            },
+            600,
+            function(){
+                $("#panelslider").slideUp();
+            }
+        );
+    }
+    else {
+        $("#panelslider").slideDown(600, function(){
+            $("#contentslider").animate(
+                {
+                    opacity: "1"
+                },
+                600
+            );
+        });
+    }   
+	}
+</script>
+
 
 <script type="text/javascript">
+	
+	//-- Google Maps Specific Scripts --
+
     var lat = <?php echo json_encode($loc[0]); ?>;
     var lng = <?php echo json_encode($loc[1]); ?>;
     var local;
@@ -51,6 +90,7 @@ require_once(dirname(__FILE__)."/../../lib/OAuth.php");
         
       }
       
+      
       function addMarker(location,bname) {
             
       	var marker = new google.maps.Marker({
@@ -67,7 +107,6 @@ require_once(dirname(__FILE__)."/../../lib/OAuth.php");
   			
   			//Google maps place request
   			var request1 = {
-    			bounds: map.getBounds(),
     			name: 'Haldi'
   			};
   			
@@ -80,6 +119,7 @@ require_once(dirname(__FILE__)."/../../lib/OAuth.php");
       	var latArr = new Array();
       	var longArr = new Array();
       	var tempArr = new Array();
+      	var bounds = new google.maps.LatLngBounds();
       	service = new google.maps.places.PlacesService(map);
       	      	
 		for (var i = 0; i < places.length; i++)
@@ -92,9 +132,12 @@ require_once(dirname(__FILE__)."/../../lib/OAuth.php");
 			longArr[i] = tempArr[1];
 			
 			Mk = new google.maps.LatLng(latArr[i], longArr[i]);
+			bounds.extend(Mk);
 			
         	addMarker(Mk,loc);
 		}
+		
+		map.fitBounds(bounds);
 		      
       }
       
@@ -121,22 +164,21 @@ require_once(dirname(__FILE__)."/../../lib/OAuth.php");
       }
       
       
+      
 </script>
 
-<!--Do not change-->
+<!--HTML Layout for the view-->
+
 <div>
 <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Your History</li>
-              <li class="active"><a href="#">Current Query</a></li>
-              <li><a href="#">Chinese & Indian</a></li>
-              <li><a href="#">Greek Pubs</a></li>
-              <li class="active"><a href="#">Recommendations</a></li>
-			  <li><a href="#">Haldi Southwater</a></li>
-			  <li><a href="#">London Road, Horsham</a></li>
+              <li class="nav-header">Details of Search</li>
+              <!--php customisation options go here -->
+              <li><span class="label label-success">Open</span> (3)</li>
+              <li><span class="label label-important">Closed</span> (7)</li>
               <li class="nav-header">Range</li>
               <li><a href="#">1-10 miles</a></li>
               <li><a href="#">10-20 miles</a></li>
@@ -144,17 +186,11 @@ require_once(dirname(__FILE__)."/../../lib/OAuth.php");
            </ul>
            <hr>
             <ul class="nav nav-list">
-              <li class="nav-header">Your History</li>
-              <li class="active"><a href="#">Current Query</a></li>
-              <li><a href="#">Chinese & Indian</a></li>
-              <li><a href="#">Greek Pubs</a></li>
-              <li class="active"><a href="#">Recommendations</a></li>
+              <li class="nav-header"><? echo Yii::app()->user->id." , why not try...?";?></li>
+              <!--load previous queries from database here-->
+              <li class="active"><a href="#">Based on previous searches</a></li>
 			  <li><a href="#">Haldi Southwater</a></li>
 			  <li><a href="#">London Road, Horsham</a></li>
-              <li class="nav-header">Range</li>
-              <li><a href="#">1-10 miles</a></li>
-              <li><a href="#">10-20 miles</a></li>
-              <li><a href="#">30+ miles</a></li>
            </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -169,11 +205,29 @@ require_once(dirname(__FILE__)."/../../lib/OAuth.php");
 		
 	echo $results;
 	
-	for ($i = 0; $i < count($bname); $i++) {
+			echo "<div id='panelslider' style='display:none;background:#eee;padding:10px;'>
+    		  <div id='contentslider' style='opacity:0;filter:alpha(opacity=0);'>
+			  <ul class='nav nav-tabs' id='infotabs'>
+  				<li><a href='#summary' data-toggle='pill'>Summary</a></li>
+  				<li><a href='#profile' data-toggle='pill'>Social Buzz</a></li>
+  				<li><a href='#messages' data-toggle='pill'>Recommender Result</a></li>
+ 				<li><a href='#settings' data-toggle='pill'>Discuss and Contribute</a></li>
+			  </ul>
+			  <div class='tab-content'>
+  			  	<div class='tab-pane active' id='home'><p>close</p></div>
+  				<div class='tab-pane' id='profile'></div>
+  				<div class='tab-pane' id='messages'></div>
+  				<div class='tab-pane' id='settings'></div>
+			  </div>
+			  </div>
+			  </div>";
+	
+	for ($i = 0; $i < count($brate); $i++) {
 	
 	    echo "<div class='row-fluid'>";
 	    echo "<div class='span4'>";
-		echo "<h4><a href = '#myModal' data-toggle='modal'>".$bname[$i]."</a></h4>";
+	    $bs = strval($bname[$i]);
+	    echo CHtml::ajaxLink('<h4>'.$bname[$i].'</h4>', array('ajax'), array('update'=>'#home', 'type'=> 'POST', 'data'=>array('mk'=>$loc,'name'=>$bs)), array('onclick'=>'toggleSlider();', 'href'=>'#map'));
 		echo $btype[$i]."</br>";
 		echo $baddr1[$i]."</br>";
 		echo "Rating: " .$brate[$i]."</br>";
@@ -213,37 +267,6 @@ require_once(dirname(__FILE__)."/../../lib/OAuth.php");
 </div>
 <script type='text/javascript'>initialize();</script>
 </div>
-
-<div id="forAjaxRefresh"></div>
- 
-<?php echo CHtml::ajaxLink('clickMe', array('ajax'), array('update'=>'#forAjaxRefresh', 'data'=>array('mk'=>'1')));?>
-
-<?php $this->beginWidget('bootstrap.widgets.TbModal', array('id'=>'myModal')); ?>
- 
-<div class="modal-header">
-    <a class="close" data-dismiss="modal">&times;</a>
-    <h4>Should I eat at </h4>
-</div>
- 
-<div class="modal-body">
-    <p>One fine body...</p>
-</div>
- 
-<div class="modal-footer">
-    <?php $this->widget('bootstrap.widgets.TbButton', array(
-        'type'=>'primary',
-        'label'=>'Save changes',
-        'url'=>'#',
-        'htmlOptions'=>array('data-dismiss'=>'modal'),
-    )); ?>
-    <?php $this->widget('bootstrap.widgets.TbButton', array(
-        'label'=>'Close',
-        'url'=>'#',
-        'htmlOptions'=>array('data-dismiss'=>'modal'),
-    )); ?>
-</div>
- 
-<?php $this->endWidget(); ?>
 
 <?php
 

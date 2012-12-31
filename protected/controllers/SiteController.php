@@ -110,9 +110,9 @@ class SiteController extends Controller
 	
 	public function actionAjax()
 	{
-		//$val1 = $_POST['mk'];
-		//echo($val[0]);
-		$this->renderPartial('resultdetail', array(), false, true);
+		$name = $_POST['name'];
+		$location = $_POST['mk'];
+		$this->renderPartial('resultdetail', array('location'=>$location, 'name'=>$name), false, true);
 	}
 	
 	public function actionFSA()
@@ -129,10 +129,11 @@ class SiteController extends Controller
 			
 			//Get attributes
 			$loc = $model->location;
+			$venue = $model->venue;
 			
 			//Reverse geocode and get results
 			$latlong = explode(", ", $loc);
-			$data = $model->ReverseGeocode($loc);
+			$data = $model->ReverseGeocode($loc,$venue);
 			
 			//Refine results
 			$data = $model->RefineResults();
