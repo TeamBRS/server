@@ -258,7 +258,7 @@ require_once(dirname(__FILE__)."/../../lib/OAuth.php");
 			baddr1[<?php echo json_encode($i); ?>] = <?php echo json_encode($baddr1[$i]); ?>;
 			btype[<?php echo json_encode($i); ?>] = <?php echo json_encode($btype[$i]); ?>;
 		</script>
-		<?
+		<?php
 		
 	}
 	
