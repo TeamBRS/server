@@ -56,7 +56,7 @@ class FSAModel extends CFormModel
 		$xml = simplexml_load_file($querystring);
 		
 		$locality = $xml->result[4]->address_component[1]->long_name;
-		$adminarea = $xml->result[7]->address_component[1]->long_name;
+		$adminarea = $xml->result[5]->address_component[0]->long_name;
 		
 		//Get FSA Listing
 		

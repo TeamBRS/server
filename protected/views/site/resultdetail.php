@@ -39,7 +39,7 @@
 	if ($response==null) {
 	?>
 		<div class="alert alert-error">
-  			<b>API Calls exceeded!</b> No information from Yelp.com received. Wait till tomorrow.
+  			<b>API Calls exceeded!</b> Noooo....no information from Yelp.com received.
 		</div>
 	<?
 	}
