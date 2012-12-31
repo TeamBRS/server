@@ -2,3 +2,5 @@
 thumbs.db
 assets/*
 !assets/.gitignore
+protected/runtime/*
+!protected/runtime/.gitignore
