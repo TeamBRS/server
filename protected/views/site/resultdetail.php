@@ -41,7 +41,7 @@
 		<div class="alert alert-error">
   			<b>API Calls exceeded!</b> Noooo....no information from Yelp.com received.
 		</div>
-	<?
+	<?php
 	}
 	else {
 	
@@ -59,5 +59,4 @@
 	}
 	
 	echo "<p><a href='#map' onclick='toggleSlider();'>Close</a></p>";
-
-?>
+	?>

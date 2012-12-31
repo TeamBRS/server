@@ -12,7 +12,7 @@ $this->pageTitle=Yii::app()->name . ' - Results';
 $this->breadcrumbs=array(
 	'Results',
 );
-require_once(dirname(__FILE__)."/../../lib/OAuth.php");
+//require_once(dirname(__FILE__)."/../../lib/OAuth.php");
 	
 ?>
 <!--Do not change!-->
@@ -186,7 +186,7 @@ require_once(dirname(__FILE__)."/../../lib/OAuth.php");
            </ul>
            <hr>
             <ul class="nav nav-list">
-              <li class="nav-header"><? echo Yii::app()->user->id." , why not try...?";?></li>
+              <li class="nav-header"><?php echo Yii::app()->user->id." , why not try...?";?></li>
               <!--load previous queries from database here-->
               <li class="active"><a href="#">Based on previous searches</a></li>
 			  <li><a href="#">Haldi Southwater</a></li>
@@ -233,18 +233,18 @@ require_once(dirname(__FILE__)."/../../lib/OAuth.php");
 		echo "Rating: " .$brate[$i]."</br>";
 		
 		//FSA Image rating loader
-		?><p><?
+		?><p><?php
 		switch($brate[$i]) {
 		
-			case "0": ?><img src="././fsaimages/fhrs_0_en-gb.jpg" alt="0"/><? break;
-			case "1": ?><img src="././fsaimages/fhrs_1_en-gb.jpg" alt="1"/><? break;
-			case "2": ?><img src="././fsaimages/fhrs_2_en-gb.jpg" alt="2"/><? break;
-			case "3": ?><img src="././fsaimages/fhrs_3_en-gb.jpg" alt="3"/><? break;
-			case "4": ?><img src="././fsaimages/fhrs_4_en-gb.jpg" alt="4"/><? break;
-			case "5": ?><img src="././fsaimages/fhrs_5_en-gb.jpg" alt="5" /><? break;
-			case "exempt": ?><img src="././fsaimages/fhrs_exempt_en-gb.jpg" alt="ex" /><? break;
-			case "awaitingpublication": ?><img src="././fsaimages/fhrs_awaitingpublication_en-gb.jpg" alt="ap" /><? break;
-			case "awaitinginspection": ?><img src="././fsaimages/fhrs_awaitinginspection_en-gb.jpg" alt="ai" /><? break;
+			case "0": ?><img src="././fsaimages/fhrs_0_en-gb.jpg" alt="0"/><?php break;
+			case "1": ?><img src="././fsaimages/fhrs_1_en-gb.jpg" alt="1"/><?php break;
+			case "2": ?><img src="././fsaimages/fhrs_2_en-gb.jpg" alt="2"/><?php break;
+			case "3": ?><img src="././fsaimages/fhrs_3_en-gb.jpg" alt="3"/><?php break;
+			case "4": ?><img src="././fsaimages/fhrs_4_en-gb.jpg" alt="4"/><?php break;
+			case "5": ?><img src="././fsaimages/fhrs_5_en-gb.jpg" alt="5" /><?php break;
+			case "exempt": ?><img src="././fsaimages/fhrs_exempt_en-gb.jpg" alt="ex" /><?php break;
+			case "awaitingpublication": ?><img src="././fsaimages/fhrs_awaitingpublication_en-gb.jpg" alt="ap" /><?php break;
+			case "awaitinginspection": ?><img src="././fsaimages/fhrs_awaitinginspection_en-gb.jpg" alt="ai" /><?php break;
 			
 		}
 
@@ -271,8 +271,6 @@ require_once(dirname(__FILE__)."/../../lib/OAuth.php");
 <?php
 
 //Populate sidebar 2 with relevant information.
-
-?>
 
 
 
