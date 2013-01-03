@@ -3,60 +3,186 @@
 /* @var $model FSAModel */
 	require_once(dirname(__FILE__)."/../../lib/OAuth.php");
 	
-	$consumer_key = "U9oEb5Wb917RLdeHip-7bA";
-	$consumer_secret = "IiBJE1TehegxK3Dh7NVtz5VR9_s";
-	$token = "p_PNhBC0Xp9aNq-glTxMp_hWZuqR6mMS";
-	$token_secret = "ZSjU3YERnlzGWGA_XDjpWFzEwkM";
-	$ywsid="A-rID23Te9CBi-DuAZ6nQQ";
-
-	// Token object built using the OAuth library
-	$token = new OAuthToken($token, $token_secret);
-
-	// Consumer object built using the OAuth library
-	$consumer = new OAuthConsumer($consumer_key, $consumer_secret);
-
-	// Yelp uses HMAC SHA1 encoding
-	$signature_method = new OAuthSignatureMethod_HMAC_SHA1();
+	/***********GOOGLEPLACES API*************/
 	
-	//test url
-	$general_url = "http://api.yelp.com/v2/search?term=".$name."&ll=".$location[0].",".$location[1];
-	$specific_url = "http://api.yelp.com/business_review_search?term=The Cowdray&lat=".$location[0]."&long=".$location[1]."&limit=5&ywsid=".$ywsid;
+	//URL Connection Block
+	try {
 	
-	$oauthrequest = OAuthRequest::from_consumer_and_token($consumer, $token, 'GET', $general_url);
-	$oauthrequest->sign_request($signature_method, $consumer, $token);
-	$signed_url = $oauthrequest->to_url();
+		$bsearch = preg_replace('/\s+/', '+',$name);
+		
+		$apikey = "AIzaSyDAV_5YynruTjKV72VGPuo8Jx2CMwFNlmo";
+		
+		//get place reference
+		$google_place_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=".$location[0].",".$location[1]."&type=bar|establishment|food&radius=10000&name=".$bsearch."&sensor=false&key=".$apikey;
+		$placeresult = file_get_contents($google_place_url);
 
-	// Send Yelp API Call
-	$ch = curl_init($specific_url);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($ch, CURLOPT_HEADER, 0);
-	$data = curl_exec($ch); // Yelp response
-	curl_close($ch);
-
-	// Handle Yelp response data
-	$response = json_decode($data, true);
-
-	if ($response==null) {
-	?>
+		
+		if ($placeresult==null) {
+		 ?>
+			<div class="alert alert-error">
+  				<b>Insufficient Information</b> This place hasn't had enough visitors yet.
+			</div>
+		<?php
+		}
+		
+	} catch (Exception $e) {
+	
+		?>
 		<div class="alert alert-error">
-  			<b>API Calls exceeded!</b> Noooo....no information from Yelp.com received.
+  			<b>Check your connection:</b> We can't seem to connect to the internet at the moment.
 		</div>
-	<?php
-	}
-	else {
-	
-		echo '<h3>'.$response['businesses'][0]['name'].'</h3>';
-		//	echo '<img src="'.$response['businesses'][0]['rating_img_url'].'" />'; 
-		//	echo '<i> '.$response['businesses'][0]['avg_rating'].' stars (on average)</i>';
-		//	echo '<br /><b> '.$response['businesses'][0]['address1'].' </b>';
-		//	echo '<br /><b> '.$response['businesses'][0]['city'].'</b>';
-		//	echo '<br /><b> '.$response['businesses'][0]['phone'].'</b>';
-	
-		//	echo '<h4>Review by '.$response['businesses'][0]['reviews'][0]['user_name'].'<img src="'.$response['businesses'][0]['reviews'][0]['rating_img_url_small'].'" /></h4>'; 
-		//	echo '<p><i>'.$response['businesses'][0]['reviews'][0]['text_excerpt'].'</i></p>';
-		//	echo '<p><i>'.$response['businesses'][0]['reviews'][0]['date'].'</i></p>';
-	
+		<?php
+		
 	}
 	
-	echo "<p><a href='#map' onclick='toggleSlider();'>Close</a></p>";
+	//JSON Decoding Block (place)
+	
+	try {
+	
+		$decodedresult = json_decode($placeresult, true);
+		$placereference = $decodedresult['results'][0]['reference'];
+		
+		if ($placereference==null) {
+		?>
+			<div class="alert alert-error">
+  				<b>Insufficient Information</b> This place hasn't had enough visitors yet.
+			</div>
+		<?php
+		} else {
+		
+		//JSON Decoding Block (detail)
+	
+			try {
+	
+				$google_place_detail = "https://maps.googleapis.com/maps/api/place/details/json?reference=".$placereference."&sensor=true&key=".$apikey;
+				$detailresult = file_get_contents($google_place_detail);
+				$decodeddetail = json_decode($detailresult, true);
+	
+			} catch (Exception $e) {
+	
+		 		?>
+				<div class="alert alert-error">
+  					<b>Incorrect format received:</b> please refresh your browser.
+				</div>
+				<?php
+
+			}
+		
+		}
+		
+	} catch (Exception $e) {
+	
+		?>
+		<div class="alert alert-error">
+  			<b>Incorrect format received:</b> please refresh your browser.
+		</div>
+		<?php
+	
+	} 
+	
+	//php 5.3 has no finally block otherwise that would be here.
+	//commit these to db eventually
+	
+	//JSON Review Decoding Block
+	
+	$listingdetails = array();
+		
+	try {
+		
+		$listingdetails['name'] = $decodedresult['results'][0]['name'];
+		$listingdetails['road'] = $decodeddetail['result']['address_components'][0]['long_name'];
+		$listingdetails['locality'] = $decodeddetail['result']['address_components'][1]['long_name'];
+		$listingdetails['locality2'] = $decodeddetail['result']['address_components'][2]['long_name'];
+		$listingdetails['phone'] = $decodeddetail['result']['formatted_phone_number'];
+		$listingdetails['icon'] = $decodeddetail['result']['icon'];
+		
+		echo '<h3>'.$listingdetails['name'].'<img src = "'.$listingdetails['icon'].'" width="25" /></h3>';
+		echo $listingdetails['road'].'<br />';
+		echo $listingdetails['locality'].'<br />';
+		echo $listingdetails['locality2'].'<br />';
+		echo '<i>'.$listingdetails['phone'].'</i><br />';
+		
+	} catch (Exception $e) {
+	
+		?>
+			<br />
+			<div class="alert alert-error">
+  				<b>Warning:</b> This listing contains partial information
+			</div>
+		<?php
+		
+	}
+	
+	//JSON Photo Decoding Block
+	try {
+	
+		if(array_key_exists('photos', $decodeddetail['result'])) {
+			
+			$listingdetails['photos'] = $decodeddetail['result']['photos'];
+
+			$ref = $listingdetails['photos'][0]['photo_reference'];
+			$photourl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=280&photoreference=".$ref."&sensor=true&key=".$apikey;
+			
+		}
+	
+	} catch (Exception $e) {
+	
+	
+	
+	}
+	
+	try {
+		
+		if(!array_key_exists('rating', $decodeddetail['result'])) {
+		?>
+			<br />
+    		<a href="#" class="thumbnail" rel="tooltip" data-title="Tooltip">
+        	<img src="http://placehold.it/280x180" alt="">
+        	<b>Average Rating:</b> N/A
+    		</a>
+			<div class="alert alert-error">
+  				<b>Warning:</b> This listing contains partial information
+			</div>
+		<?php
+		} else {
+			$listingdetails['rating'] = $decodeddetail['result']['rating'];
+			?>
+    		<a href="#" class="thumbnail" rel="tooltip" data-title="Tooltip">
+        	<img src="http://placehold.it/280x180" alt="">
+        	<b>Average Rating: </b> <i> <?php echo $listingdetails['rating']; ?> </i>
+    		</a>
+			<?php
+		}
+		
+		
+		$listingdetails['reviews'] = $decodeddetail['result']['reviews'];
+		echo '<br />';
+	
+		echo '<h4>'.count($listingdetails['reviews']).' people have left their feedback.</h4>';
+
+		//Review Iterator
+		foreach($listingdetails['reviews'] as $review) {
+		
+			echo '<p><b>Review by: </b><i>'.$review['author_name'].'</i></p>';
+		
+			foreach($review['aspects'] as $aspect) {
+			
+				echo '<b>'.$aspect['type']."</b>: ".$aspect['rating'].'<br />';
+			
+			}
+			
+			echo '<p>"'.$review['text'].'"</p><hr>';
+			
+		}
+		echo '<pre>';
+		print_r($decodeddetail);
+		echo '</pre>';
+		
+	} catch (Exception $e) {
+		
+		Yii::app()->user->setFlash('warning', '<strong>Warning:</strong> This listing is currently incomplete.');
+	
+	}
+
+		echo "<p><a href='#map' onclick='toggleSlider();'>Close</a></p>";
 	?>

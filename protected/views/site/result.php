@@ -105,13 +105,6 @@ $this->breadcrumbs=array(
 		google.maps.event.addListener(marker, 'click', function() {
   			marker.info.open(map, marker);
   			
-  			//Google maps place request
-  			var request1 = {
-    			name: 'Haldi'
-  			};
-  			
-  			service = new google.maps.places.PlacesService(map);
- 		    service.radarSearch(request1, callback);
 		});
       }
       
@@ -140,30 +133,6 @@ $this->breadcrumbs=array(
 		map.fitBounds(bounds);
 		      
       }
-      
-      function callback(results, status) {
-      	if(status ==  google.maps.places.PlacesServiceStatus.OK) {
-      		for (var i = 0; i < results.length; i++) {
-      			refstring = results[i].reference;
-      		}
-      	} else {
-      		alert(status);
-      	}
-      	  			  			
-  			//Google maps place detail request
-  			var request2 = {
-  				reference: refstring
-  			};
-  			  			
-  			service = new google.maps.places.PlacesService(map);
-  			  			
-  			service.getDetails(request2, function(details, status) {
-        		fp = details.photos;
-        		alert(fp.length);
-    		})
-      }
-      
-      
       
 </script>
 
@@ -214,7 +183,7 @@ $this->breadcrumbs=array(
  				<li><a href='#settings' data-toggle='pill'>Discuss and Contribute</a></li>
 			  </ul>
 			  <div class='tab-content'>
-  			  	<div class='tab-pane active' id='home'><p>close</p></div>
+  			  	<div class='tab-pane active' id='summary'></div>
   				<div class='tab-pane' id='profile'></div>
   				<div class='tab-pane' id='messages'></div>
   				<div class='tab-pane' id='settings'></div>
@@ -227,7 +196,7 @@ $this->breadcrumbs=array(
 	    echo "<div class='row-fluid'>";
 	    echo "<div class='span4'>";
 	    $bs = strval($bname[$i]);
-	    echo CHtml::ajaxLink('<h4>'.$bname[$i].'</h4>', array('ajax'), array('update'=>'#home', 'type'=> 'POST', 'data'=>array('mk'=>$loc,'name'=>$bs)), array('onclick'=>'toggleSlider();', 'href'=>'#map'));
+	    echo CHtml::ajaxLink('<h4>'.$bname[$i].'</h4>', array('ajax'), array('update'=>'#summary', 'type'=> 'POST', 'data'=>array('mk'=>$loc,'name'=>$bs)), array('onclick'=>'toggleSlider();', 'href'=>'#map'));
 		echo $btype[$i]."</br>";
 		echo $baddr1[$i]."</br>";
 		echo "Rating: " .$brate[$i]."</br>";
