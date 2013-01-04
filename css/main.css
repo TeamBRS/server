@@ -32,13 +32,22 @@ body
 	padding: 20px 20px 20px 0;
 }
 
-#map 
+#map_canvas
 {
 	height: 360px;
 	width: 480px;
 	position: absolute;
 	top: 150px;
 	left: 550px;
+}
+
+#map_canvas img {
+	max-width: none;
+}
+
+#map_canvas label {
+	width: auto;
+	display: inline;
 }
 
 #reviewsinfo

@@ -12,7 +12,8 @@ $this->pageTitle=Yii::app()->name . ' - Results';
 $this->breadcrumbs=array(
 	'Results',
 );
-//require_once(dirname(__FILE__)."/../../lib/OAuth.php");
+
+include('twitter.php');
 	
 ?>
 <!--Do not change!-->
@@ -82,7 +83,7 @@ $this->breadcrumbs=array(
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         
-        map = new google.maps.Map(document.getElementById("map"),
+        map = new google.maps.Map(document.getElementById("map_canvas"),
             mapOptions);
             
             
@@ -119,12 +120,13 @@ $this->breadcrumbs=array(
 		{
 			var a = JSON.stringify(bnames[i]).split('"');
 			var loc = JSON.stringify(bnames[i])+'<br />'+JSON.stringify(baddr1[i])+'<br />'+JSON.stringify(btype[i]);
-				
+						
 			tempArr = places[i].split(',');
 			latArr[i] = tempArr[0];
-			longArr[i] = tempArr[1];
+			longArr[i] = tempArr[1]*10;
 			
 			Mk = new google.maps.LatLng(latArr[i], longArr[i]);
+						
 			bounds.extend(Mk);
 			
         	addMarker(Mk,loc);
@@ -158,15 +160,16 @@ $this->breadcrumbs=array(
               <li class="nav-header"><?php echo Yii::app()->user->id." , why not try...?";?></li>
               <!--load previous queries from database here-->
               <li class="active"><a href="#">Based on previous searches</a></li>
-			  <li><a href="#">Haldi Southwater</a></li>
-			  <li><a href="#">London Road, Horsham</a></li>
+              <li><a href="#">Varsity</a></li>
+              <li><a href="#">Friday's Seafare</a></li>
+			 
            </ul>
           </div><!--/.well -->
         </div><!--/span-->
         
         <div class="span9">
           <div class="leaderboard">
-          <div id='map' style='width:100%; height:360px'></div>
+          <div id='map_canvas' style='width:100%; height:360px'></div>
           </div>
 
 <!--Process results array from model-->
@@ -184,7 +187,9 @@ $this->breadcrumbs=array(
 			  </ul>
 			  <div class='tab-content'>
   			  	<div class='tab-pane active' id='summary'></div>
-  				<div class='tab-pane' id='profile'></div>
+  				<div class='tab-pane' id='profile'>";
+  				print_r(getTwitterData());
+  			echo "</div>
   				<div class='tab-pane' id='messages'></div>
   				<div class='tab-pane' id='settings'></div>
 			  </div>
@@ -205,12 +210,12 @@ $this->breadcrumbs=array(
 		?><p><?php
 		switch($brate[$i]) {
 		
-			case "0": ?><img src="././fsaimages/fhrs_0_en-gb.jpg" alt="0"/><?php break;
-			case "1": ?><img src="././fsaimages/fhrs_1_en-gb.jpg" alt="1"/><?php break;
-			case "2": ?><img src="././fsaimages/fhrs_2_en-gb.jpg" alt="2"/><?php break;
-			case "3": ?><img src="././fsaimages/fhrs_3_en-gb.jpg" alt="3"/><?php break;
-			case "4": ?><img src="././fsaimages/fhrs_4_en-gb.jpg" alt="4"/><?php break;
-			case "5": ?><img src="././fsaimages/fhrs_5_en-gb.jpg" alt="5" /><?php break;
+			case "0": ?><a href="#" rel="tooltip" title="Rating 0: Its probably too dangerous to eat here"><img src="././fsaimages/fhrs_0_en-gb.jpg" alt="0"/></a><?php break;
+			case "1": ?><a href="#" rel="tooltip" title="Rating 1: In need of lots of improvement. Best avoid here."><img src="././fsaimages/fhrs_1_en-gb.jpg" alt="1"/></a><?php break;
+			case "2": ?><a href="#" rel="tooltip" title="Rating 2: Needs improvement. Ok to visit on the one off."><img src="././fsaimages/fhrs_2_en-gb.jpg" alt="2"/></a><?php break;
+			case "3": ?><a href="#" rel="tooltip" title="Rating 3: Generally ok. Could be improved."><img src="././fsaimages/fhrs_3_en-gb.jpg" alt="3"/></a><?php break;
+			case "4": ?><a href="#" rel="tooltip" title="Rating 4: A safe and clean place to eat."><img src="././fsaimages/fhrs_4_en-gb.jpg" alt="4"/></a><?php break;
+			case "5": ?><a href="#" rel="tooltip" title="Rating 5: Very safe and clean."><img src="././fsaimages/fhrs_5_en-gb.jpg" alt="5" /></a><?php break;
 			case "exempt": ?><img src="././fsaimages/fhrs_exempt_en-gb.jpg" alt="ex" /><?php break;
 			case "awaitingpublication": ?><img src="././fsaimages/fhrs_awaitingpublication_en-gb.jpg" alt="ap" /><?php break;
 			case "awaitinginspection": ?><img src="././fsaimages/fhrs_awaitinginspection_en-gb.jpg" alt="ai" /><?php break;

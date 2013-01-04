@@ -144,12 +144,13 @@ class SiteController extends Controller
 			$btype = $model->businesstype;
 			$baddr1 = $model->businessaddr1;
 			$brate = $model->businessrating;
-						
-			$data2=array();
-			$data2["myValue"]="content 2";
+			
+			//Get array of previous queries
+			$queries = $model->GetHistory();
+				
 			//Render results in result.php
 			$this->render('result',array('results'=>$data, 
-			'loc'=>$latlong, 'test'=>$data2,'markers'=>$locmarkers, 'bname'=>$bname,
+			'loc'=>$latlong, 'past'=>$queries,'markers'=>$locmarkers, 'bname'=>$bname,
 			'btype'=>$btype,'baddr1'=>$baddr1,'brate'=>$brate));
 						
 		} else {

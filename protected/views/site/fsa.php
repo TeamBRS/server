@@ -56,11 +56,12 @@ DISTANCE (ordered nearest/furthest)
 		'validateOnSubmit'=>true,
 	),
 )); ?>
-		  <?php echo $form->textFieldRow($model,'location',array('id'=>'loc_id', 'onclick'=>'getLocation()', 'class'=>'ext')); ?>
-    <br />
+		  <?php echo $form->textFieldRow($model,'location',array('id'=>'loc_id','class'=>'ext')); ?>
+		  <a href="#" rel="tooltip" title="Get Current Location"><i class="icon-globe" onclick="getLocation()"></i></a>
+		 <br />
 		  <h2><?php echo $form->labelEx($model,'minrating'); ?></h2>
 		  <?php echo $form->radioButtonList($model,'minrating', array('1'=>'1 Star','2'=>'2 Star','3'=>'3 Star','4'=>'4 Star','5'=>'5 Star'), array('separator'=>' ', 'uncheckValue'=>null)); ?>
-    <br />
+   <br />
 		  <h2><?php echo $form->labelEx($model,'cuisine'); ?></h2>
 		  <?php echo $form->checkBoxList($model,'cuisine', array(0=>'English',1=>'Greek',2=>'Chinese',3=>'Indian',4=>'Fast Food',5=>'Light Bites'), array('separator'=>' ')); ?>
     <br />
