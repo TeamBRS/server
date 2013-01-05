@@ -4,12 +4,12 @@
 function getTwitterData() {
 
 $sentiment = false;
-$restaurant = 'Pizza%20Hut';
-$geocode_lat = '52.3813';
-$geocode_long = '-1.5617';
-$geocode_radius = '100mi';
-$positive = 'love%20OR%20amazing';
-$negative = 'hate%20OR%20awful%20OR%20bad%20-too';
+$restaurant = "Pizza%20Hut";
+$geocode_lat = "52.3813";
+$geocode_long = "-1.5617";
+$geocode_radius = "100mi";
+$positive = "love%20OR%20amazing";
+$negative = "hate%20OR%20awful%20OR%20bad%20-too";
 $choice = $positive;
 if (!$sentiment) {
 	$choice = $negative;
@@ -21,9 +21,6 @@ $feed = file_get_contents($data); //Getting the JSON data.
 $tweets = array();
 
 $valid_data = json_decode($feed); // Converting the JSON data to PHP format.
-print '<pre>';
-//print $valid_data;
-print '</pre>';
 $valid_data = $valid_data->results; // Valid data now with just the tweet result.
 // Printing out the feed's data in our required format
 
