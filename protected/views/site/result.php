@@ -163,11 +163,24 @@ include('twitter.php');
 			  <?php
 			  
               for ($i = 0; $i < 5; $i++) {
-                echo '<li>'.CHtml::ajaxLink($past[rand(0, count($past)-1)]['business_name'], array('ajax'), array('update'=>'#summary', 'type'=> 'POST', 'data'=>array('mk'=>$loc,'name'=>$past[rand(0, count($past)-1)]['business_name'])), array('onclick'=>'toggleSlider();', 'href'=>'#map')).'</li>';	
+              
+              	$bn = $past[rand(0, count($past)-1)]['business_name'];
+              
+                echo '<li>'.CHtml::ajaxLink($bn, array('ajax'), array('update'=>'#summary', 'type'=> 'POST', 'data'=>array('mk'=>$loc,'name'=>$bn)), array('onclick'=>'toggleSlider();', 'href'=>'#map')).'</li>';	
               }
 			  
 			  ?>
+			  <hr>
 			  <li class="active"><a href="#">Based on Cuisine Type</a></li>
+			  <?php
+			  
+			    for ($i = 0; $i < 5; $i++) {
+              
+              		$cats = $cuisine[rand(0, count($cuisine)-1)];
+              		echo '<li><a href = "#">'.$cats.'</a></li>';
+              	
+              	}
+			  ?>
            </ul>
           </div><!--/.well -->
         </div><!--/span-->

@@ -1,5 +1,5 @@
 <?php
-
+require_once(dirname(__FILE__)."/../lib/OAuth.php");
 /**
  * FSAForm class.
  */
@@ -16,6 +16,7 @@ class FSAModel extends CFormModel
 	public $businesstype=array();
 	public $businessaddr1=array();
 	public $businessrating=array();
+	public $businesscuisine=array();
 	public $queryhistory=array();
 
 	/**
@@ -51,7 +52,6 @@ class FSAModel extends CFormModel
 	
 		$latlong = explode(", ", $location);
 		$querystring = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=".$latlong[0].",".$latlong[1]."&sensor=true";
-		$cuisineqs = 
 
 		//Get xml data using CURL
 		
@@ -96,10 +96,56 @@ class FSAModel extends CFormModel
 			$this->businessaddr1[] = $child->AddressLine1;
 			$this->businessrating[] = $child->RatingValue;
 			
-			$this->CommitDB(2, array($child->BusinessName, $child->BusinessType, $child->AddressLine1, $child->RatingValue));
+			$this->CommitDB(2, array($child->BusinessName, $child->BusinessType, $child->AddressLine1, $child->RatingValue,  $this->GetYelpData($lat, $long, $child->BusinessName)
+));
 
 		}
 		
+	}
+	
+	public function GetYelpData($lat, $long, $bname) {
+		
+		$consumer_key = "U9oEb5Wb917RLdeHip-7bA";
+		$consumer_secret = "IiBJE1TehegxK3Dh7NVtz5VR9_s";
+		$token = "p_PNhBC0Xp9aNq-glTxMp_hWZuqR6mMS";
+		$token_secret = "ZSjU3YERnlzGWGA_XDjpWFzEwkM";
+		$ywsid="A-rID23Te9CBi-DuAZ6nQQ";
+
+		// Token object built using the OAuth library
+		$token = new OAuthToken($token, $token_secret);
+
+		// Consumer object built using the OAuth library
+		$consumer = new OAuthConsumer($consumer_key, $consumer_secret);
+
+		// Yelp uses HMAC SHA1 encoding
+		$signature_method = new OAuthSignatureMethod_HMAC_SHA1();
+		
+		$general_url = "http://api.yelp.com/v2/search?term=".$bname."&ll=".$lat.",".$long*10;
+		
+		$oauthrequest = OAuthRequest::from_consumer_and_token($consumer, $token, 'GET', $general_url);
+		$oauthrequest->sign_request($signature_method, $consumer, $token);
+		$signed_url = $oauthrequest->to_url();
+
+		// Send Yelp API Call
+		$ch = curl_init($signed_url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		$data = curl_exec($ch); // Yelp response
+		curl_close($ch);
+
+		// Handle Yelp response data
+		$response = json_decode($data);
+		$response = $response->businesses;
+		$category= "";
+		
+		foreach($response as $restaur) {
+	    	if(array_key_exists('categories',$restaur)) {
+	    		$category = $restaur->categories[0][0];
+	    		$this->businesscuisine[] = $category;
+	    	}
+		}
+	
+		return $category;	
 	}
 	
 	public function RefineResults() 
@@ -163,7 +209,7 @@ class FSAModel extends CFormModel
 		} else if($mode==2) {
 		
 			$sql1="INSERT INTO tbl_query_results (user_id, business_name, business_cuisine, business_address, business_type, business_rating) VALUES ";
-			$sql2="('".$user_id."','".$arr[0]."', default,'".$arr[2]."','".$arr[1]."','".$arr[3]."');";
+			$sql2="('".$user_id."','".$arr[0]."','".$arr[4]."','".$arr[2]."','".$arr[1]."','".$arr[3]."');";
 			
 			$conn=Yii::app()->db;
 			$comm=$conn->createCommand($sql1.$sql2);
