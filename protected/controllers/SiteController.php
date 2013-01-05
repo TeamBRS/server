@@ -144,6 +144,7 @@ class SiteController extends Controller
 			$btype = $model->businesstype;
 			$baddr1 = $model->businessaddr1;
 			$brate = $model->businessrating;
+			$bcats = $model->businesscuisine;
 			
 			//Get array of previous queries
 			$queries = $model->GetHistory();
@@ -151,7 +152,7 @@ class SiteController extends Controller
 			//Render results in result.php
 			$this->render('result',array('results'=>$data, 
 			'loc'=>$latlong, 'past'=>$queries,'markers'=>$locmarkers, 'bname'=>$bname,
-			'btype'=>$btype,'baddr1'=>$baddr1,'brate'=>$brate));
+			'btype'=>$btype,'baddr1'=>$baddr1,'brate'=>$brate, 'cuisine'=>$bcats));
 						
 		} else {
 	
