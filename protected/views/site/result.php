@@ -160,9 +160,14 @@ include('twitter.php');
               <li class="nav-header"><?php echo Yii::app()->user->id." , why not try...?";?></li>
               <!--load previous queries from database here-->
               <li class="active"><a href="#">Based on previous searches</a></li>
-              <li><a href="#">Varsity</a></li>
-              <li><a href="#">Friday's Seafare</a></li>
-			 
+			  <?php
+			  
+              for ($i = 0; $i < 5; $i++) {
+                echo '<li>'.CHtml::ajaxLink($past[rand(0, count($past)-1)]['business_name'], array('ajax'), array('update'=>'#summary', 'type'=> 'POST', 'data'=>array('mk'=>$loc,'name'=>$past[rand(0, count($past)-1)]['business_name'])), array('onclick'=>'toggleSlider();', 'href'=>'#map')).'</li>';	
+              }
+			  
+			  ?>
+			  <li class="active"><a href="#">Based on Cuisine Type</a></li>
            </ul>
           </div><!--/.well -->
         </div><!--/span-->

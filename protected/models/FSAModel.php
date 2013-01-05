@@ -51,6 +51,7 @@ class FSAModel extends CFormModel
 	
 		$latlong = explode(", ", $location);
 		$querystring = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=".$latlong[0].",".$latlong[1]."&sensor=true";
+		$cuisineqs = 
 
 		//Get xml data using CURL
 		
@@ -94,7 +95,9 @@ class FSAModel extends CFormModel
 			$this->businesstype[] = $child->BusinessType;
 			$this->businessaddr1[] = $child->AddressLine1;
 			$this->businessrating[] = $child->RatingValue;
-							
+			
+			$this->CommitDB(2, array($child->BusinessName, $child->BusinessType, $child->AddressLine1, $child->RatingValue));
+
 		}
 		
 	}
@@ -132,43 +135,58 @@ class FSAModel extends CFormModel
 					$this->businessaddr1 = array_values($this->businessaddr1);
 					$this->businessrating = array_values($this->businessrating);
 				}
-			
+											
 		}
-		$this->CommitDB();
+		$this->CommitDB(1, null);
 	
 	}
 	
-	public function CommitDB() {
-	
+	public function CommitDB($mode, $arr) {
+		
 		//get current user id, this state should only occur when a user has logged in.
 		$user_id = Yii::app()->user->id;
-		//fix location delimiter 
-		$loc = explode(",", $this->location);
-		$loc = implode("@", $loc);
+	
+		if($mode==1) {
+
+			//fix location delimiter 
+			$loc = explode(",", $this->location);
+			$loc = implode("@", $loc);
 			
-		//define sql query for committing information
-		$sql1="INSERT INTO tbl_query_history (userid, timestamp, location, minrating, cuisinepref, socialpref) VALUES ";
-		$sql2="('".$user_id."','".date("Y-m-d H:i:s")."','".$loc."','".$this->minrating."','".implode("@", $this->cuisine)."','".implode("@", $this->socialfeeds)."');";
+			//define sql query for committing information
+			$sql1="INSERT INTO tbl_query_history (userid, timestamp, location, minrating, cuisinepref, socialpref) VALUES ";
+			$sql2="('".$user_id."','".date("Y-m-d H:i:s")."','".$loc."','".$this->minrating."','".implode("@", $this->cuisine)."','".implode("@", $this->socialfeeds)."');";
 		
-		$conn=Yii::app()->db;
-		$comm=$conn->createCommand($sql1.$sql2);
-		$rowCount=$comm->execute();
+			$conn=Yii::app()->db;
+			$comm=$conn->createCommand($sql1.$sql2);
+			$rowCount=$comm->execute();
+		
+		} else if($mode==2) {
+		
+			$sql1="INSERT INTO tbl_query_results (user_id, business_name, business_cuisine, business_address, business_type, business_rating) VALUES ";
+			$sql2="('".$user_id."','".$arr[0]."', default,'".$arr[2]."','".$arr[1]."','".$arr[3]."');";
+			
+			$conn=Yii::app()->db;
+			$comm=$conn->createCommand($sql1.$sql2);
+			
+			try {
+				$rowCount=$comm->execute();
+			} catch (Exception $e) {
+			  //do nothing
+			}
+				
+		}
 		
 	}
 	
 	public function GetHistory() {
 	
-		$sql = "SELECT * FROM tbl_query_history";
 		$user_id = Yii::app()->user->id;
+		$sql = "SELECT * FROM tbl_query_results WHERE user_id='".$user_id."';";
 		
 		$conn=Yii::app()->db;
-		$comm=$conn->createCommand($sql)
-		 	->select('*')
-    		->from('tbl_user')
-    		->where('userid='.$user_id)
-    		->queryAll();
-    	
-    	$this->queryhistory = $comm;
+		$comm=$conn->createCommand($sql);
+		$this->queryhistory = $comm->queryAll();
+
     	return $this->queryhistory;
 	}
 	
