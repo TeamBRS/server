@@ -154,25 +154,6 @@ class UserController extends Controller
 			. "client_id=" . $this->app_id . "&redirect_uri=" . urlencode($my_url)
 			. "&client_secret=" . $this->app_secret . "&code=" . $_REQUEST['code'];
 			
-			/*$token_url = "https://graph.facebook.com/oauth/access_token";
-			
-			$params = array('client_id' => $this->app_id, 
-							'redirect_uri' => urlencode($my_url), 
-							'client_secret' => $this->app_secret, 
-							'code' => $_REQUEST['code']);
-							
-			$response = $this->geturl($token_url, $params);*/
-			
-			
-			// Create a curl handle to a non-existing location 
-			
-
-			/*$a = $this->get_data($token_url);
-			var_dump($a);
-			die();*/
-						
-			//print_r($response);
-
 			$response = file_get_contents($token_url);
 
 			
@@ -186,7 +167,15 @@ class UserController extends Controller
 
 			$user = json_decode(file_get_contents($graph_url));
 			$facebook_name = $user->name;
-			$this->render('facebookin',array( 'facebook_name'=>$facebook_name,'response'=>$response));
+			
+			$fb_user = new FacebookUser;
+			$fb_user->user_id = Yii::app()->user->getId();
+			$fb_user->auth_key = $params['access_token'];
+			$fb_user->key_expiry = $params['expires'];
+			
+			$fb_user->insert();
+			
+			$this->render('facebookin',array( 'facebook_name'=>$facebook_name,'response'=>$fb_user));
 		}else {
 			$this->render('facebookerror',array());
 		}
