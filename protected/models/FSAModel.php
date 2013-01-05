@@ -51,6 +51,7 @@ class FSAModel extends CFormModel
 	
 		$latlong = explode(", ", $location);
 		$querystring = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=".$latlong[0].",".$latlong[1]."&sensor=true";
+		$cuisineqs = 
 
 		//Get xml data using CURL
 		
@@ -166,7 +167,12 @@ class FSAModel extends CFormModel
 			
 			$conn=Yii::app()->db;
 			$comm=$conn->createCommand($sql1.$sql2);
-			$rowCount=$comm->execute();
+			
+			try {
+				$rowCount=$comm->execute();
+			} catch (Exception $e) {
+			  //do nothing
+			}
 				
 		}
 		
@@ -174,17 +180,13 @@ class FSAModel extends CFormModel
 	
 	public function GetHistory() {
 	
-		$sql = "SELECT * FROM tbl_query_history";
 		$user_id = Yii::app()->user->id;
+		$sql = "SELECT * FROM tbl_query_results WHERE user_id='".$user_id."';";
 		
 		$conn=Yii::app()->db;
-		$comm=$conn->createCommand($sql)
-		 	->select('*')
-    		->from('tbl_user')
-    		->where('userid='.$user_id)
-    		->queryAll();
-    	
-    	$this->queryhistory = $comm;
+		$comm=$conn->createCommand($sql);
+		$this->queryhistory = $comm->queryAll();
+
     	return $this->queryhistory;
 	}
 	
