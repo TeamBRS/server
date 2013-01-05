@@ -3,4 +3,6 @@ thumbs.db
 assets/*
 !assets/.gitignore
 protected/runtime/*
+protected/config/main.php
+protected/data/testdrive.db
 !protected/runtime/.gitignore
