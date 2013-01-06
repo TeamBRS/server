@@ -160,15 +160,110 @@ class FSAModel extends CFormModel
 		//Temporary while we are not storing in db.
 	
 		$min = (int) $this->minrating;
+		$cuisine = $this->cuisine;	
 		
-		foreach ($this->businessrating as $key => $value) {
+		//Cuisine preference filtering
+		
+		for($i=0;$i<count($this->businesscuisine);$i++) {
+			
+			switch($cuisine) {
+			
+				case 1: 
+					if ($this->businesscuisine[$i]!="English") {
+						echo "no match<br />";
+						$this->UnsetElements($i);
+					} else {
+						echo "match<br />";
+					}
+					break;
+				case 2: 
+					if ($this->businesscuisine[$i]!="Italian") {
+						echo "no match<br />";
+						$this->UnsetElements($i);
+					} else {
+						echo "match<br />";
+					}
+					break;
+				case 3:					
+					if ($this->businesscuisine[$i]!="Chinese") {
+						echo "no match<br />";
+						$this->UnsetElements($i);
+					} else {
+						echo "match<br />";
+					}
+					break; 
+				case 4: 
+					if ($this->businesscuisine[$i]!="Coffee & Tea") {
+						echo "no match<br />";
+						$this->UnsetElements($i);
+					} else {
+						echo "match<br />";
+					}
+				break;
+				case 5:					
+					if ($this->businesscuisine[$i]!="Indian") {
+						echo "no match<br />";
+						$this->UnsetElements($i);
+					} else {
+						echo "match<br />";
+					} 
+				break;
+				case 6:
+					if ($this->businesscuisine[$i]!="Fast Food") {
+						echo "no match<br />";
+						$this->UnsetElements($i);
+					} else {
+						echo "match<br />";
+					} 
+				break;
+				case 7:
+					if ($this->businesscuisine[$i]!="Pubs") {
+						echo "no match<br />";
+						$this->UnsetElements($i);
+					} else {
+						echo "match<br />";
+					} 
+				break;
+				case 8: 
+					if ($this->businesscuisine[$i]!="Pizza") {
+						echo "no match<br />";
+						$this->UnsetElements($i);
+					} else {
+						echo "match<br />";
+					} 
+				break;
+				case 9:
+					if ($this->businesscuisine[$i]!="Spanish") {
+						echo "no match<br />";
+						$this->UnsetElements($i);
+					} else {
+						echo "match<br />";
+					} 
+				break;
+				case 10:
+					if ($this->businesscuisine[$i]!="Spanish") {
+						echo "no match<br />";
+						$this->UnsetElements($i);
+					} else {
+						echo "match<br />";
+					} 
+				break;
+
+				default: break;
+			}
+			
+		}
+				
+		//Minimum rating filtering
+		
+		/*foreach ($this->businessrating as $key => $value) {
     		if ($value < $min) {
         		unset($this->businessrating[$key]);
         		$this->businessrating = array_values($this->businessrating);
 			}
 		}
-		
-		echo count($this->businessrating);
+
+				
 	
 		for($i=0; $i < count($this->businessrating); $i++) {
 			//refine according to each search criteria
@@ -189,9 +284,35 @@ class FSAModel extends CFormModel
 					$this->businessrating = array_values($this->businessrating);
 				}
 											
-		}
+		}*/
 		$this->CommitDB(1, null);
 	
+	}
+	
+	public function UnsetElements($index) {
+		
+		/*$this->businesscuisine[$index] = "";
+		$this->locmarkers[$index] = "";
+		$this->businessname[$index] = "";
+		$this->businesstype[$index] = "";
+		$this->businessaddr1[$index] = "";
+		$this->businessrating[$index] = "";*/
+		
+		unset($this->businesscuisine[$index]);
+		unset($this->locmarkers[$index]);
+		unset($this->businessname[$index]);
+		unset($this->businesstype[$index]);
+		unset($this->businessaddr1[$index]);
+		unset($this->businessrating[$index]);
+					
+		//normalize array indices
+		$this->locmarkers = array_values($this->locmarkers);
+		$this->businessname = array_values($this->businessname);
+		$this->businesstype = array_values($this->businesstype);
+		$this->businessaddr1 = array_values($this->businessaddr1);
+		$this->businessrating = array_values($this->businessrating);
+		$this->businesscuisine = array_values($this->businesscuisine);
+		
 	}
 	
 	public function CommitDB($mode, $arr) {
@@ -218,12 +339,16 @@ class FSAModel extends CFormModel
 			$loc = explode(",", $this->location);
 		
 			$sql1="INSERT INTO tbl_query_results (user_id, business_name, business_cuisine, business_address, business_type, business_rating, longtitude, latitude) VALUES ";
-			$sql2="('".$user_id."','".$arr[0]."','".$arr[4]."','".$arr[2]."','".$arr[1]."','".$arr[3]."','".$arr[5]."','".$arr[6]."');";
+			$sql2="('".$user_id."','".$arr[0]."','".$arr[4]."','".$arr[2]."','".$arr[1]."','".$arr[3]."','".$arr[5]."','".($arr[6]*10)."');";
 			
 			$conn=Yii::app()->db;
 			$comm=$conn->createCommand($sql1.$sql2);
 
-			$rowCount=$comm->execute();
+			try {
+				$rowCount=$comm->execute();
+			} catch (Exception $e) {
+				//do nothing
+			}
 				
 		}
 		

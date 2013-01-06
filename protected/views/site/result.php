@@ -181,6 +181,7 @@ $(document).on("click", ".open-SocialFeed", function () {
               	$bn = $past[rand(0, count($past)-1)]['business_name'];
               
                 echo '<li>'.CHtml::ajaxLink($bn, array('ajax'), array('update'=>'#summary', 'type'=> 'POST', 'data'=>array('mk'=>$loc,'name'=>$bn)), array('onclick'=>'toggleSlider();', 'href'=>'#map')).'</li>';	
+             
               }
 			  
 			  ?>

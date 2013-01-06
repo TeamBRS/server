@@ -16,7 +16,7 @@
 		$google_place_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=".$location[0].",".$location[1]."&type=bar|establishment|food&radius=5000&name=".$bsearch."&sensor=false&key=".$apikey;
 		$placeresult = file_get_contents($google_place_url);
 		
-		if ($placeresult==null) {
+		if ($placeresult==null) {§
 		 ?>
 			<div class="alert alert-error">
   				<b>Insufficient Information</b> This place hasn't had enough visitors yet.
