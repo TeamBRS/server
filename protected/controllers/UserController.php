@@ -55,10 +55,13 @@ class UserController extends Controller
 	 */
 	public function actionView($id)
 	{
-		//retrieve facebook user id
-		$fb_user = FacebookUser::model()->find('id=:id', array(':id'=>25));		
+		//retrieve the user's name from the usertable 
+		$gnn_user = User::model()->find('id=:id', array(':id'=>$id));
 		
+		//retrieve facebook user using their username
+		$fb_user = FacebookUser::model()->find('user_id=:user_id', array(':user_id'=>$gnn_user->username));		
 		
+		//display the profile page 
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 			'fb_user'=>$fb_user,
