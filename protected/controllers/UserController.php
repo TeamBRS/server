@@ -7,6 +7,10 @@ class UserController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+		
+	//facebook authentication info
+	public $app_id = "100257963482709";
+	public $app_secret = "5ffd4843d77d881f6e9a82c0309c51d7";
 
 	/**
 	 * @return array action filters
@@ -31,8 +35,8 @@ class UserController extends Controller
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+			array('allow', // allow authenticated user to perform 'create', 'update' and 'facebookconnect' actions
+				'actions'=>array('create','update', 'facebookconnect', 'facebookin', 'facebookerror'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -102,6 +106,96 @@ class UserController extends Controller
 			'model'=>$model,
 		));
 	}
+	
+	public function actionFacebookConnect($id) 
+	{
+		$model=$this->loadModel($id);
+			
+		$pageURL = 'http://';
+		if ($_SERVER["SERVER_PORT"] != "80") {
+			$pageURL .= "gastronono.com". "/server/fb-collector.php";
+		} else {
+			$pageURL .= "gastronono.com". "/server/fb-collector.php";
+		}
+		
+		$my_url = $pageURL;
+		
+		//$my_url = "http://localhost/server/index.php?r=user/facebookin&id=" . $id;
+		
+		if(empty($_REQUEST["code"])) {
+			$_SESSION['state'] = md5(uniqid(rand(), TRUE)); // CSRF protection
+			$dialog_url = "https://www.facebook.com/dialog/oauth?client_id=" 
+				. $this->app_id . "&redirect_uri=" . urlencode($my_url) . "&state="
+				. $_SESSION['state'];
+
+			$message = "<script> top.location.href='" . $dialog_url . "'</script>";
+			$this->render('facebookout',array('model'=>$model,'message'=>$message,));
+		}
+	}
+	
+	public function actionFacebookIn() 
+	{
+		//$model=$this->loadModel($id);
+		
+		$pageURL = 'http://';
+		if ($_SERVER["SERVER_PORT"] != "80") {
+			$pageURL .= "gastronono.com". "/server/fb-collector.php";
+		} else {
+			$pageURL .= "gastronono.com". "/server/fb-collector.php";
+		}
+		
+		$my_url = $pageURL;
+		
+		/*var_dump($pageURL);
+		die();*/
+		
+		if(!empty($_SESSION['state'])  && ($_SESSION['state'] === $_REQUEST['state'])) {
+			$token_url = "https://graph.facebook.com/oauth/access_token?"
+			. "client_id=" . $this->app_id . "&redirect_uri=" . urlencode($my_url)
+			. "&client_secret=" . $this->app_secret . "&code=" . $_REQUEST['code'];
+			
+			/*$token_url = "https://graph.facebook.com/oauth/access_token";
+			
+			$params = array('client_id' => $this->app_id, 
+							'redirect_uri' => urlencode($my_url), 
+							'client_secret' => $this->app_secret, 
+							'code' => $_REQUEST['code']);
+							
+			$response = $this->geturl($token_url, $params);*/
+			
+			
+			// Create a curl handle to a non-existing location 
+			
+
+			/*$a = $this->get_data($token_url);
+			var_dump($a);
+			die();*/
+						
+			//print_r($response);
+
+			$response = file_get_contents($token_url);
+
+			
+			$params = null;
+			parse_str($response, $params);
+
+			//$_SESSION['access_token'] = $params['access_token'];
+
+			$graph_url = "https://graph.facebook.com/me?access_token=" 
+				. $params['access_token'];
+
+			$user = json_decode(file_get_contents($graph_url));
+			$facebook_name = $user->name;
+			$this->render('facebookin',array( 'facebook_name'=>$facebook_name,'response'=>$response));
+		}else {
+			$this->render('facebookerror',array());
+		}
+	}
+	
+	public function actionFacebookRemove($id) 
+	{
+		//TODO
+	}
 
 	/**
 	 * Deletes a particular model.
@@ -167,5 +261,16 @@ class UserController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+	
+	function get_data($url) {
+		  $ch = curl_init();
+		  $timeout = 5;
+		  curl_setopt($ch, CURLOPT_URL, $url);
+		  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+		  $data = curl_exec($ch);
+		  curl_close($ch);
+		  return $data;
 	}
 }
