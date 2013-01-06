@@ -51,7 +51,6 @@ class FSAModel extends CFormModel
 	
 		$latlong = explode(", ", $location);
 		$querystring = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=".$latlong[0].",".$latlong[1]."&sensor=true";
-		$cuisineqs = 
 
 		//Get xml data using CURL
 		
@@ -154,7 +153,7 @@ class FSAModel extends CFormModel
 			
 			//define sql query for committing information
 			$sql1="INSERT INTO tbl_query_history (userid, timestamp, location, minrating, cuisinepref, socialpref) VALUES ";
-			$sql2="('".$user_id."','".date("Y-m-d H:i:s")."','".$loc."','".$this->minrating."','".implode("@", $this->cuisine)."','".implode("@", $this->socialfeeds)."');";
+			$sql2="('".$user_id."','".date("Y-m-d H:i:s")."','".$loc."','".$this->minrating."','".$this->cuisine."','".$this->socialfeeds."');";
 		
 			$conn=Yii::app()->db;
 			$comm=$conn->createCommand($sql1.$sql2);

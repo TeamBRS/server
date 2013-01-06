@@ -58,20 +58,15 @@ DISTANCE (ordered nearest/furthest)
 )); ?>
 		  <?php echo $form->textFieldRow($model,'location',array('id'=>'loc_id','class'=>'ext')); ?>
 		  <a href="#" rel="tooltip" title="Get Current Location"><i class="icon-globe" onclick="getLocation()"></i></a>
-		 <br />
-		  <h2><?php echo $form->labelEx($model,'minrating'); ?></h2>
-		  <?php echo $form->radioButtonList($model,'minrating', array('1'=>'1 Star','2'=>'2 Star','3'=>'3 Star','4'=>'4 Star','5'=>'5 Star'), array('separator'=>' ', 'uncheckValue'=>null)); ?>
-   <br />
-		  <h2><?php echo $form->labelEx($model,'cuisine'); ?></h2>
-		  <?php echo $form->checkBoxList($model,'cuisine', array(0=>'English',1=>'Greek',2=>'Chinese',3=>'Indian',4=>'Fast Food',5=>'Light Bites'), array('separator'=>' ')); ?>
     <br />
-		  <h2><?php echo $form->labelEx($model,'venue'); ?></h2>
-		  <?php echo $form->radioButtonList($model,'venue', array(0=>'Restaurant',1=>'Pub/Bar',2=>'Cafe',3=>'Outlet',4=>'Canteen',5=>'Takeaway'), array('separator'=>' ')); ?>
+		<?php echo $form->dropDownListRow($model, 'minrating', array('1 Star','2 Star','3 Star','4 Star','5 Star'), array('separator'=>' ', 'uncheckValue'=>null)); ?>
     <br />
-		  <h2><?php echo $form->labelEx($model,'socialfeeds'); ?></h2>
-		  <?php echo $form->checkBoxList($model,'socialfeeds', array(0=>'Facebook',1=>'Twitter',2=>'Google+'), array('separator'=>' ')); ?>
-
-<br />
+   		<?php echo $form->dropDownListRow($model,'cuisine', array('English','Greek','Chinese','Indian','Fast Food','Light Bites'), array('separator'=>' ')); ?>
+    <br />
+     	<?php echo $form->dropDownListRow($model,'venue', array('Restaurant','Pub/Bar','Cafe','Outlet','Canteen','Takeaway'), array('separator'=>' ')); ?>
+    <br />
+    	<?php echo $form->dropDownListRow($model,'socialfeeds', array('Facebook','Twitter','Google+'), array('separator'=>' ')); ?>
+    <br />
 
 <?php $this->widget('bootstrap.widgets.TbButton', array(
     'label'=>'Find me food!',

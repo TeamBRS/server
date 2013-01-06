@@ -2,19 +2,19 @@
  
 function getTwitterData() {
 
-	$sentiment = false;
+	$sentiment = true;
 	$restaurant = "Pizza%20Hut";
 	$geocode_lat = "52.3813";
 	$geocode_long = "-1.5617";
 	$geocode_radius = "100mi";
-	$positive = "love%20OR%20amazing";
-	$negative = "hate%20OR%20awful%20OR%20bad%20-too";
+	$positive = '"I%20love"%20OR%20"I%20like"%20OR%20"I%20need"%20OR%20"is%20good"%20OR%20"is%20really%20good"%20OR%20"is%20really%20cool"%20OR%20"is%20amazing"%20OR%20"is%20awesome"%20OR%20"is%20the%20best"';
+	$negative = '"don\'t%20like"%20OR%20"is%20horrible"%20OR%20"is%20stupid"%20OR%20"is%20crap"%20OR%20"is%20bad"%20OR%20"is%20awful"%20OR%20"is%20shit"';
 	$choice = $positive;
 	if (!$sentiment) {
 		$choice = $negative;
 	}
 
-	$data = 'http://search.twitter.com/search.json?q="' . $restaurant . '"%20' . $choice . '&rpp=10&geocode=' . $geocode_lat . ',' . $geocode_long . ',' . $geocode_radius;
+	$data = 'http://search.twitter.com/search.json?q="' . $restaurant . '"%20' . $choice . '&rpp=10&geocode=' . $geocode_lat . ',' . $geocode_long . ',' . $geocode_radius . '&include_entities=true';
 	$feed = file_get_contents($data); //Getting the JSON data.
 	 
 	$tweets = array();
