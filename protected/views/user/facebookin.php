@@ -9,5 +9,9 @@ $this->breadcrumbs=array(
 
 <p>Please wait while we redirect you to your profile page...</p>
 
-
+<script type="text/javascript">
+<!--
+window.location = "index.php?r=user/view&id=<?php echo $gnn_user->id ?>"
+//-->
+</script>
 

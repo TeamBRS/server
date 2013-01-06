@@ -190,8 +190,11 @@ class UserController extends Controller
 			//dump the model to the database
 			$fb_user->insert();
 			
+			//retrieve the user's name 
+			$gnn_user = User::model()->find('username=:username', array(':username'=>$fb_user->user_id)); 
+			
 			//generate a welcome page 
-			$this->render('facebookin',array( 'facebook_name'=>$facebook_name,'response'=>$fb_user));
+			$this->render('facebookin',array( 'facebook_name'=>$facebook_name,'response'=>$fb_user,'gnn_user'=>$gnn_user));
 		}else {
 			$this->render('facebookerror',array());
 		}
