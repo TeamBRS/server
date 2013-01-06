@@ -25,12 +25,19 @@ class FSAModel extends CFormModel
 	public function rules()
 	{
 		return array(
-			array('location', 'safe'),
-			array('minrating','safe'),
-			array('cuisine','safe'),
-			array('venue','safe'),
-			array('socialfeeds', 'safe'),
+			array('location', 'required'),
+			array('location', 'checkLoc'),
+			array('minrating','required'),
+			array('cuisine','required'),
+			array('venue','required'),
+			array('socialfeeds', 'required'),
 		);
+	}
+	
+	public function checkLoc($attribute,$params) {
+		if($this->location=='') {
+			$this->addError('location','No location specified');
+		}
 	}
 	
 	/**
@@ -96,7 +103,7 @@ class FSAModel extends CFormModel
 			$this->businessaddr1[] = $child->AddressLine1;
 			$this->businessrating[] = $child->RatingValue;
 			
-			$this->CommitDB(2, array($child->BusinessName, $child->BusinessType, $child->AddressLine1, $child->RatingValue,  $this->GetYelpData($lat, $long, $child->BusinessName)
+			$this->CommitDB(2, array($child->BusinessName, $child->BusinessType, $child->AddressLine1, $child->RatingValue,  $this->GetYelpData($lat, $long, $child->BusinessName), $lat, $long
 ));
 
 		}
@@ -208,17 +215,15 @@ class FSAModel extends CFormModel
 		
 		} else if($mode==2) {
 		
-			$sql1="INSERT INTO tbl_query_results (user_id, business_name, business_cuisine, business_address, business_type, business_rating) VALUES ";
-			$sql2="('".$user_id."','".$arr[0]."','".$arr[4]."','".$arr[2]."','".$arr[1]."','".$arr[3]."');";
+			$loc = explode(",", $this->location);
+		
+			$sql1="INSERT INTO tbl_query_results (user_id, business_name, business_cuisine, business_address, business_type, business_rating, longtitude, latitude) VALUES ";
+			$sql2="('".$user_id."','".$arr[0]."','".$arr[4]."','".$arr[2]."','".$arr[1]."','".$arr[3]."','".$arr[5]."','".$arr[6]."');";
 			
 			$conn=Yii::app()->db;
 			$comm=$conn->createCommand($sql1.$sql2);
-			
-			try {
-				$rowCount=$comm->execute();
-			} catch (Exception $e) {
-			  //do nothing
-			}
+
+			$rowCount=$comm->execute();
 				
 		}
 		

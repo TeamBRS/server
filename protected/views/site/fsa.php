@@ -62,12 +62,12 @@ DISTANCE (ordered nearest/furthest)
 		'validateOnSubmit'=>true,
 	),
 )); ?>
-		  <?php echo $form->textFieldRow($model,'location',array('id'=>'loc_id','class'=>'ext')); ?>
+	<?php echo $form->textFieldRow($model,'location',array('id'=>'loc_id','class'=>'ext')); ?>
 		  <a href="#" rel="tooltip" title="Get Current Location"><i class="icon-globe" onclick="getLocation()"></i></a>
     <br />
 		<?php echo $form->dropDownListRow($model, 'minrating', array('1 Star','2 Star','3 Star','4 Star','5 Star'), array('separator'=>' ', 'uncheckValue'=>null)); ?>
     <br />
-   		<?php echo $form->dropDownListRow($model,'cuisine', array('English','Greek','Chinese','Indian','Fast Food','Light Bites'), array('separator'=>' ')); ?>
+   		<?php echo $form->dropDownListRow($model,'cuisine', array('All types','English','Italian','Chinese','Coffee & Tea','Indian','Fast Food','French', 'Pubs','Pizza','Spanish', 'Japanese'), array('separator'=>' ')); ?>
     <br />
      	<?php echo $form->dropDownListRow($model,'venue', array('Restaurant','Pub/Bar','Cafe','Outlet','Canteen','Takeaway'), array('separator'=>' ')); ?>
     <br />

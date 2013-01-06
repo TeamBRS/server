@@ -160,7 +160,13 @@ $(document).on("click", ".open-SocialFeed", function () {
               <li><span class="label label-success">Open</span> (3)</li>
               <li><span class="label label-important">Closed</span> (7)</li>
               <li class="nav-header">Social Feeds</li>
-              <li><a href="#socialactivity" data-id="twitter" data-toggle="modal" class="open-SocialFeed">Twitter Activity</a></li>
+              <?php $res = getTwitterData($loc, true, $bname); ?>
+              <li><a href="#socialactivity" data-id="twitter" data-toggle="modal" class="open-SocialFeed">Twitter Activity 
+              <?php $this->widget('bootstrap.widgets.TbBadge', array(
+    			'type'=>'info', // 'success', 'warning', 'important', 'info' or 'inverse'
+    			'label'=>count($res),
+			  )); ?>
+              </a></li>
               <li><a href="#">Google+ Activity</a></li>
            </ul>
            <hr>
@@ -202,11 +208,22 @@ $(document).on("click", ".open-SocialFeed", function () {
 <div class="modal hide" id="socialactivity">
  <div class="modal-header">
     <button class="close" data-dismiss="modal">×</button>
-    <h3>Modal header</h3>
+    <h3>See what hungry tweeters are saying..</h3>
   </div>
     <div class="modal-body">
-        <p>some content</p>
-        <input type="text" name="socialid" id="socialid" value=""/>
+        <?php 
+        
+        if (count($res)!=0) {
+        	for($i=0;$i<count($res);$i++) {
+        		echo $res[$i];
+        	}
+        } else {
+        	?><div class="alert alert-error">
+  				<b>No tweets</b> found for any establishments in this area.
+			</div><?php
+        }
+        
+        ?>
     </div>
 </div>
 
