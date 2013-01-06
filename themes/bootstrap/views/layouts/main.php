@@ -14,6 +14,9 @@
 
 <body>
 
+<?php 
+$gnn_user = User::model()->find('username=:username', array(':username'=>Yii::app()->user->id));
+?>
 
 <?php $this->widget('bootstrap.widgets.TbNavbar',array(
     'items'=>array(
@@ -24,7 +27,7 @@
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'FSA', 'url'=>array('/site/fsa')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>Yii::app()->user->name.'\'s Account', 'url'=>array('/account') , 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>Yii::app()->user->name.'\'s Account', 'url'=>array('user/view&id=' .$gnn_user->id) , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
