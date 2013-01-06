@@ -115,10 +115,13 @@ class UserController extends Controller
 		));
 	}
 	
-	public function actionFacebookConnect($id) 
+	public function actionFacebookConnect() 
 	{
+		//retrieve the user's id
+		$gnn_user = User::model()->find('username=:username', array(':username'=>Yii::app()->user->id));
 		
-		$model=$this->loadModel($id);
+		//load user model
+		$model=$this->loadModel($gnn_user->id);
 		
 		//generate return url
 		$pageURL = 'http://';
