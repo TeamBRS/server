@@ -87,7 +87,7 @@ class FSAModel extends CFormModel
 			//pull out data from the facebook opengraph
 			$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
 			
-			$fb_places = json_decode(file_get_contents($fb_url));
+			$fb_places = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
 		}
 		
 		//Construct FSA Listings
@@ -145,7 +145,7 @@ class FSAModel extends CFormModel
 				//we've found it - now save it to the database
 				$new_place = new FacebookPlace;
 				
-				$new_place->page_id = $closest->page_id; //dirty string hack
+				$new_place->page_id = strval($closest->page_id); //dirty string hack
 				$new_place->pic_large = $closest->pic_large;
 				$new_place->type = $closest->type;
 				$new_place->name = $closest->name;

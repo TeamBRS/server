@@ -41,7 +41,15 @@ class FacebookPlace extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			
+			array('page_id', 'required'),
+			array('is_unclaimed', 'numerical', 'integerOnly'=>true),
+			array('page_id', 'length', 'max'=>128),
+			array('pic_large, type, name', 'length', 'max'=>255),
+			array('latitude, longitude', 'length', 'max'=>30),
+			array('date_created', 'safe'),
+			// The following rule is used by search().
+			// Please remove those attributes that should not be searched.
+			array('page_id, pic_large, type, name, is_unclaimed, date_created, latitude, longitude', 'safe', 'on'=>'search'),
 		);
 	}
 
