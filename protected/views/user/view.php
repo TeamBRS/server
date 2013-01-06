@@ -7,8 +7,6 @@ $this->breadcrumbs=array(
 	$model->username,
 );
 
-
-
 ?>
 
 <div class="form">
@@ -33,7 +31,19 @@ $this->breadcrumbs=array(
 				Insert results of a beautiful query here...
 			</div>
 		</div>
-		<div class="span3"><img src="http://graph.facebook.com/<?php if($fb_user) {echo $fb_user->facebook_id;}  ?>/picture?type=large"></div>
+		<div class="span3">
+			<!-- Facebook profile picture -->
+			<p>
+				<img src="http://graph.facebook.com/<?php if($fb_user) {echo $fb_user->facebook_id;}  ?>/picture?type=large">
+			</p>
+			<p>
+				<?php if(!$fb_user) { ?>
+					<strong> <a href="index.php?r=user/facebookconnect"> Connect my Facebook Profile </a> </strong>
+				<?php } else { ?>
+					<strong> Disconnect my Facebook Profile </strong>
+				<?php } ?>
+			</p>
+		</div>
 	</div>
 </div>
 
