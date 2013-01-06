@@ -110,9 +110,31 @@ class SiteController extends Controller
 	
 	public function actionAjax()
 	{
-		$name = $_POST['name'];
-		$location = $_POST['mk'];
-		$this->renderPartial('resultdetail', array('location'=>$location, 'name'=>$name), false, true);
+	
+		if(count($_POST)==2) {
+		
+			$name = $_POST['name'];
+			$location = $_POST['mk'];
+			$mode = 'review';
+			echo '<h1>'.$mode.'</h1>';
+			
+		} else if(count($_POST)==3) {
+		
+		    $name = $_POST['name'];
+			$location = $_POST['mk'];
+			$mode = 'twitter';
+			echo '<h1>'.$mode.'</h1>';
+
+		} else {
+		
+		    $name = $_POST['name'];
+			$location = $_POST['mk'];
+			$mode = 'default';
+			echo '<h1>'.$mode.'</h1>';
+		
+		}
+		
+		$this->renderPartial('resultdetail', array('location'=>$location, 'name'=>$name, 'mode'=>$mode), false, true);
 	}
 	
 	public function actionFSA()
@@ -144,6 +166,7 @@ class SiteController extends Controller
 			$btype = $model->businesstype;
 			$baddr1 = $model->businessaddr1;
 			$brate = $model->businessrating;
+			$bcats = $model->businesscuisine;
 			
 			//Get array of previous queries
 			$queries = $model->GetHistory();
@@ -151,7 +174,7 @@ class SiteController extends Controller
 			//Render results in result.php
 			$this->render('result',array('results'=>$data, 
 			'loc'=>$latlong, 'past'=>$queries,'markers'=>$locmarkers, 'bname'=>$bname,
-			'btype'=>$btype,'baddr1'=>$baddr1,'brate'=>$brate));
+			'btype'=>$btype,'baddr1'=>$baddr1,'brate'=>$brate, 'cuisine'=>$bcats));
 						
 		} else {
 	

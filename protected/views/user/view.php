@@ -7,14 +7,6 @@ $this->breadcrumbs=array(
 	$model->username,
 );
 
-/*$this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Create User', 'url'=>array('create')),
-	array('label'=>'Update User', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete User', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage User', 'url'=>array('admin')),
-);*/
-
 ?>
 
 <div class="form">
@@ -26,6 +18,7 @@ $this->breadcrumbs=array(
 				<strong>Email:</strong> <?php echo $model->email; ?> <br />
 				<strong>Password:</strong> <?php echo $model->password; ?> <br />
 				<a href="<?php echo Yii::app()->createUrl('user/update', array('id'=>$model->id)); ?>">[edit]</a>
+				<?php $this->widget('application.widgets.facebook.Facebook',array('appId'=>'100257963482709')); ?>
 			</div>
 			
 			<div>
@@ -38,7 +31,19 @@ $this->breadcrumbs=array(
 				Insert results of a beautiful query here...
 			</div>
 		</div>
-		<div class="span3">Change Picture</div>
+		<div class="span3">
+			<!-- Facebook profile picture -->
+			<p>
+				<img src="http://graph.facebook.com/<?php if($fb_user) {echo $fb_user->facebook_id;}  ?>/picture?type=large">
+			</p>
+			<p>
+				<?php if(!$fb_user) { ?>
+					<strong> <a href="index.php?r=user/facebookconnect"> Connect my Facebook Profile </a> </strong>
+				<?php } else { ?>
+					<strong> Disconnect my Facebook Profile </strong>
+				<?php } ?>
+			</p>
+		</div>
 	</div>
 </div>
 

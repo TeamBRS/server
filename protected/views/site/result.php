@@ -163,11 +163,24 @@ include('twitter.php');
 			  <?php
 			  
               for ($i = 0; $i < 5; $i++) {
-                echo '<li>'.CHtml::ajaxLink($past[rand(0, count($past)-1)]['business_name'], array('ajax'), array('update'=>'#summary', 'type'=> 'POST', 'data'=>array('mk'=>$loc,'name'=>$past[rand(0, count($past)-1)]['business_name'])), array('onclick'=>'toggleSlider();', 'href'=>'#map')).'</li>';	
+              
+              	$bn = $past[rand(0, count($past)-1)]['business_name'];
+              
+                echo '<li>'.CHtml::ajaxLink($bn, array('ajax'), array('update'=>'#summary', 'type'=> 'POST', 'data'=>array('mk'=>$loc,'name'=>$bn)), array('onclick'=>'toggleSlider();', 'href'=>'#map')).'</li>';	
               }
 			  
 			  ?>
+			  <hr>
 			  <li class="active"><a href="#">Based on Cuisine Type</a></li>
+			  <?php
+			  
+			    for ($i = 0; $i < 5; $i++) {
+              
+              		$cats = $cuisine[rand(0, count($cuisine)-1)];
+              		echo '<li><a href = "#">'.$cats.'</a></li>';
+              	
+              	}
+			  ?>
            </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -182,19 +195,19 @@ include('twitter.php');
 		
 	echo $results;
 	
+			//<a href='#profile' data-toggle='pill'>Social Buzz</a>
 			echo "<div id='panelslider' style='display:none;background:#eee;padding:10px;'>
     		  <div id='contentslider' style='opacity:0;filter:alpha(opacity=0);'>
 			  <ul class='nav nav-tabs' id='infotabs'>
   				<li><a href='#summary' data-toggle='pill'>Summary</a></li>
-  				<li><a href='#profile' data-toggle='pill'>Social Buzz</a></li>
-  				<li><a href='#messages' data-toggle='pill'>Recommender Result</a></li>
+  				<li>";
+  				echo CHtml::ajaxLink('Social Buzz', array('ajax'), array('update'=>'#profile', 'type'=>'POST','data'=>array('loc'=>$loc, 'name'=>$bname, 'mode'=>'twitter')), array('href'=>'#profile', 'data-toggle'=>'pill'));
+  				echo "</li><li><a href='#messages' data-toggle='pill'>Recommender Result</a></li>
  				<li><a href='#settings' data-toggle='pill'>Discuss and Contribute</a></li>
 			  </ul>
 			  <div class='tab-content'>
   			  	<div class='tab-pane active' id='summary'></div>
-  				<div class='tab-pane' id='profile'>";
-  				print_r(getTwitterData());
-  			echo "</div>
+  				<div class='tab-pane' id='profile'></div>
   				<div class='tab-pane' id='messages'></div>
   				<div class='tab-pane' id='settings'></div>
 			  </div>

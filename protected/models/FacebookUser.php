@@ -1,20 +1,19 @@
 <?php
 
 /**
- * This is the model class for table "tbl_user".
+ * This is the model class for table "tbl_facebook_user".
  *
- * The followings are the available columns in table 'tbl_user':
- * @property integer $id
- * @property string $username
- * @property string $password
- * @property string $email
+ * The followings are the available columns in table 'tbl_facebook_user':
+ * @property integer $user_id
+ * @property string $auth_key
+ * @property integer $key_expiry
  */
-class User extends CActiveRecord
+class FacebookUser extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return User the static model class
+	 * @return FacebookUser the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -26,7 +25,7 @@ class User extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'tbl_user';
+		return 'tbl_facebook_user';
 	}
 
 	/**
@@ -37,12 +36,12 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, email', 'required'),
-			array('username, email', 'unique'),
-			array('username, password, email', 'length', 'max'=>128),
+			array('user_id, auth_key, key_expiry', 'facebook_id', 'required'),
+			array('user_id, key_expiry', 'facebook_id', 'integerOnly'=>true),
+			array('length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, username, password, email', 'safe', 'on'=>'search'),
+			array('user_id, auth_key, key_expiry', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,11 +62,11 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'username' => 'Username',
-			'password' => 'Password',
-			'email' => 'Email',
-			'facebook_id' => 'Facebook ID'
+			'user_id' => 'User',
+			'auth_key' => 'Auth Key',
+			'key_expiry' => 'Key Expiry',
+			'facebook_id' => 'Facebook Id',
+			'id' => 'Id',
 		);
 	}
 
@@ -82,10 +81,9 @@ class User extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('password',$this->password,true);
-		$criteria->compare('email',$this->email,true);
+		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('auth_key',$this->auth_key,true);
+		$criteria->compare('key_expiry',$this->key_expiry);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

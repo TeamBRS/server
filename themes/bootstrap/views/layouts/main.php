@@ -13,7 +13,16 @@
 </head>
 
 <body>
+<?php 
+//ascertain userid and make sure it doesn't screw everything up if it doesn't exist
+$gnn_user = User::model()->find('username=:username', array(':username'=>Yii::app()->user->id));
 
+$user_id = 0;
+
+if ($gnn_user) {
+	$user_id = $gnn_user->id; 
+}
+?>
 
 <?php $this->widget('bootstrap.widgets.TbNavbar',array(
     'items'=>array(
@@ -24,7 +33,7 @@
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'FSA', 'url'=>array('/site/fsa')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>Yii::app()->user->name.'\'s Account', 'url'=>array('/account') , 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>Yii::app()->user->name.'\'s Account', 'url'=>array('user/view&id=' .$user_id) , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
@@ -51,6 +60,10 @@
 	</div><!-- footer -->
 
 </div><!-- page -->
-
+<script language="javascript" type="text/javascript">
+  $(window).load(function() {
+    $('#loading').hide();
+  });
+</script>
 </body>
 </html>
