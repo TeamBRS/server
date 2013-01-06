@@ -28,6 +28,15 @@ include('twitter.php');
 </script>
 
 <script type="text/javascript">
+$(document).on("click", ".open-SocialFeed", function () {
+     var mySocialId = $(this).data('id');
+     $(".modal-body #socialid").val( mySocialId );
+    $('#socialactivity').modal('show');
+});
+
+</script>
+
+<script type="text/javascript">
 
 	//-- JQuery Specific Scripts --
 
@@ -150,10 +159,9 @@ include('twitter.php');
               <!--php customisation options go here -->
               <li><span class="label label-success">Open</span> (3)</li>
               <li><span class="label label-important">Closed</span> (7)</li>
-              <li class="nav-header">Range</li>
-              <li><a href="#">1-10 miles</a></li>
-              <li><a href="#">10-20 miles</a></li>
-              <li><a href="#">30+ miles</a></li>
+              <li class="nav-header">Social Feeds</li>
+              <li><a href="#socialactivity" data-id="twitter" data-toggle="modal" class="open-SocialFeed">Twitter Activity</a></li>
+              <li><a href="#">Google+ Activity</a></li>
            </ul>
            <hr>
             <ul class="nav nav-list">
@@ -190,6 +198,18 @@ include('twitter.php');
           <div id='map_canvas' style='width:100%; height:360px'></div>
           </div>
 
+<!--place twitter activity into a modal-->
+<div class="modal hide" id="socialactivity">
+ <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Modal header</h3>
+  </div>
+    <div class="modal-body">
+        <p>some content</p>
+        <input type="text" name="socialid" id="socialid" value=""/>
+    </div>
+</div>
+
 <!--Process results array from model-->
 <?php
 		
@@ -200,9 +220,8 @@ include('twitter.php');
     		  <div id='contentslider' style='opacity:0;filter:alpha(opacity=0);'>
 			  <ul class='nav nav-tabs' id='infotabs'>
   				<li><a href='#summary' data-toggle='pill'>Summary</a></li>
-  				<li>";
-  				echo CHtml::ajaxLink('Social Buzz', array('ajax'), array('update'=>'#profile', 'type'=>'POST','data'=>array('loc'=>$loc, 'name'=>$bname, 'mode'=>'twitter')), array('href'=>'#profile', 'data-toggle'=>'pill'));
-  				echo "</li><li><a href='#messages' data-toggle='pill'>Recommender Result</a></li>
+  				<li><a href='#profile' data-toggle='pill'>Social Activity</a></li>
+  				<li><a href='#messages' data-toggle='pill'>Recommender Result</a></li>
  				<li><a href='#settings' data-toggle='pill'>Discuss and Contribute</a></li>
 			  </ul>
 			  <div class='tab-content'>
@@ -259,10 +278,4 @@ include('twitter.php');
 </div>
 <script type='text/javascript'>initialize();</script>
 </div>
-
-<?php
-
-//Populate sidebar 2 with relevant information.
-
-
 
