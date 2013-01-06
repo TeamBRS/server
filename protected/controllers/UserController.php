@@ -55,8 +55,13 @@ class UserController extends Controller
 	 */
 	public function actionView($id)
 	{
+		//retrieve facebook user id
+		$fb_user = FacebookUser::model()->find('id=:id', array(':id'=>25));		
+		
+		
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+			'fb_user'=>$fb_user,
 		));
 	}
 
@@ -172,6 +177,7 @@ class UserController extends Controller
 			$fb_user->user_id = Yii::app()->user->getId();
 			$fb_user->auth_key = $params['access_token'];
 			$fb_user->key_expiry = $params['expires'];
+			$fb_user->facebook_id = $user->id;
 			
 			$fb_user->insert();
 			
