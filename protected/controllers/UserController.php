@@ -126,9 +126,9 @@ class UserController extends Controller
 		//generate return url
 		$pageURL = 'http://';
 		if ($_SERVER["SERVER_PORT"] != "80") {
-			$pageURL .= "gastronono.com". "/server/fb-collector.php";
+			$pageURL .= "localhost". "/server/fb-collector.php";
 		} else {
-			$pageURL .= "gastronono.com". "/server/fb-collector.php";
+			$pageURL .= "localhost". "/server/fb-collector.php";
 		}
 		
 		$my_url = $pageURL;
@@ -151,9 +151,9 @@ class UserController extends Controller
 		//generate reutrn url 
 		$pageURL = 'http://';
 		if ($_SERVER["SERVER_PORT"] != "80") {
-			$pageURL .= "gastronono.com". "/server/fb-collector.php";
+			$pageURL .= "localhost". "/server/fb-collector.php";
 		} else {
-			$pageURL .= "gastronono.com". "/server/fb-collector.php";
+			$pageURL .= "localhost". "/server/fb-collector.php";
 		}
 		
 		$my_url = $pageURL;
