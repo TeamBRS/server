@@ -201,7 +201,7 @@ include('twitter.php');
 			  <ul class='nav nav-tabs' id='infotabs'>
   				<li><a href='#summary' data-toggle='pill'>Summary</a></li>
   				<li>";
-  				echo CHtml::ajaxLink('Social Buzz', array('twitterajax'), array('update'=>'#profile', 'data'=>'hi robin'), array('href'=>'#profile', 'data-toggle'=>'pill'));
+  				echo CHtml::ajaxLink('Social Buzz', array('ajax'), array('update'=>'#profile', 'type'=>'POST','data'=>array('loc'=>$loc, 'name'=>$bname, 'mode'=>'twitter')), array('href'=>'#profile', 'data-toggle'=>'pill'));
   				echo "</li><li><a href='#messages' data-toggle='pill'>Recommender Result</a></li>
  				<li><a href='#settings' data-toggle='pill'>Discuss and Contribute</a></li>
 			  </ul>

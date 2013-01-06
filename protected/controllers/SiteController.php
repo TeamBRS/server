@@ -110,14 +110,31 @@ class SiteController extends Controller
 	
 	public function actionAjax()
 	{
-		$name = $_POST['name'];
-		$location = $_POST['mk'];
-		$this->renderPartial('resultdetail', array('location'=>$location, 'name'=>$name), false, true);
-	}
 	
-	public function actionTwitterAjax()
-	{
-		$this->renderPartial('result', 'hello', false, true);
+		if(count($_POST)==2) {
+		
+			$name = $_POST['name'];
+			$location = $_POST['mk'];
+			$mode = 'review';
+			echo '<h1>'.$mode.'</h1>';
+			
+		} else if(count($_POST)==3) {
+		
+		    $name = $_POST['name'];
+			$location = $_POST['mk'];
+			$mode = 'twitter';
+			echo '<h1>'.$mode.'</h1>';
+
+		} else {
+		
+		    $name = $_POST['name'];
+			$location = $_POST['mk'];
+			$mode = 'default';
+			echo '<h1>'.$mode.'</h1>';
+		
+		}
+		
+		$this->renderPartial('resultdetail', array('location'=>$location, 'name'=>$name, 'mode'=>$mode), false, true);
 	}
 	
 	public function actionFSA()

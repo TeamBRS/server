@@ -13,7 +13,13 @@
 </head>
 
 <body>
-
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+</script>
+<div id="loading">
+  <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." />
+</div>
+<?php $this->widget('ext.widgets.loading.LoadingWidget'); ?>
 
 <?php $this->widget('bootstrap.widgets.TbNavbar',array(
     'items'=>array(
@@ -51,6 +57,10 @@
 	</div><!-- footer -->
 
 </div><!-- page -->
-
+<script language="javascript" type="text/javascript">
+  $(window).load(function() {
+    $('#loading').hide();
+  });
+</script>
 </body>
 </html>
