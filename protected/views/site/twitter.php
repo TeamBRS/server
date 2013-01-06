@@ -37,3 +37,4 @@ function getTwitterData() {
 	return $tweets;
 
 }
+?>

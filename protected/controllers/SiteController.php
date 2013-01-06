@@ -115,6 +115,11 @@ class SiteController extends Controller
 		$this->renderPartial('resultdetail', array('location'=>$location, 'name'=>$name), false, true);
 	}
 	
+	public function actionTwitterAjax()
+	{
+		$this->renderPartial('result', 'hello', false, true);
+	}
+	
 	public function actionFSA()
 	{
 		if(Yii::app()->user->getId()===null)
