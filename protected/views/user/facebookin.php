@@ -5,10 +5,13 @@ $this->breadcrumbs=array(
 	'Facebook',
 );
 ?>
-<h1>Wow, you are now authenticated!</h1>
+<h2>Thank you, <?php echo $facebook_name; ?>, you are now authenticated!</h2>
 
-<marquee><h1><?php echo $facebook_name; ?></h1></marquee>
+<p>Please wait while we redirect you to your profile page...</p>
 
-<?php print_r($response); ?>
-
+<script type="text/javascript">
+<!--
+window.location = "index.php?r=user/view&id=<?php echo $gnn_user->id ?>"
+//-->
+</script>
 
