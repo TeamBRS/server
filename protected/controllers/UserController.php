@@ -117,8 +117,10 @@ class UserController extends Controller
 	
 	public function actionFacebookConnect($id) 
 	{
+		
 		$model=$this->loadModel($id);
-			
+		
+		//generate return url
 		$pageURL = 'http://';
 		if ($_SERVER["SERVER_PORT"] != "80") {
 			$pageURL .= "gastronono.com". "/server/fb-collector.php";
@@ -128,8 +130,7 @@ class UserController extends Controller
 		
 		$my_url = $pageURL;
 		
-		//$my_url = "http://localhost/server/index.php?r=user/facebookin&id=" . $id;
-		
+		//if no code has been returned initiate the facebook process
 		if(empty($_REQUEST["code"])) {
 			$_SESSION['state'] = md5(uniqid(rand(), TRUE)); // CSRF protection
 			$dialog_url = "https://www.facebook.com/dialog/oauth?client_id=" 
@@ -143,8 +144,8 @@ class UserController extends Controller
 	
 	public function actionFacebookIn() 
 	{
-		//$model=$this->loadModel($id);
 		
+		//generate reutrn url 
 		$pageURL = 'http://';
 		if ($_SERVER["SERVER_PORT"] != "80") {
 			$pageURL .= "gastronono.com". "/server/fb-collector.php";
@@ -154,36 +155,42 @@ class UserController extends Controller
 		
 		$my_url = $pageURL;
 		
-		/*var_dump($pageURL);
-		die();*/
-		
+		//if all is well complete the authentication and retrieve a token
 		if(!empty($_SESSION['state'])  && ($_SESSION['state'] === $_REQUEST['state'])) {
 			$token_url = "https://graph.facebook.com/oauth/access_token?"
 			. "client_id=" . $this->app_id . "&redirect_uri=" . urlencode($my_url)
 			. "&client_secret=" . $this->app_secret . "&code=" . $_REQUEST['code'];
 			
 			$response = file_get_contents($token_url);
-
 			
+			//ensure that params is not defined
 			$params = null;
+			
+			//parse response into a set of parmeters
 			parse_str($response, $params);
 
-			//$_SESSION['access_token'] = $params['access_token'];
-
+			//access the individual's page from the opengraph
 			$graph_url = "https://graph.facebook.com/me?access_token=" 
 				. $params['access_token'];
 
+				
+			//retrieve the page and then parse it into an array 
 			$user = json_decode(file_get_contents($graph_url));
+			
+			//pull out the person's username
 			$facebook_name = $user->name;
 			
+			//create a new FacebookUser model with the details we now have
 			$fb_user = new FacebookUser;
 			$fb_user->user_id = Yii::app()->user->getId();
 			$fb_user->auth_key = $params['access_token'];
 			$fb_user->key_expiry = $params['expires'];
 			$fb_user->facebook_id = $user->id;
 			
+			//dump the model to the database
 			$fb_user->insert();
 			
+			//generate a welcome page 
 			$this->render('facebookin',array( 'facebook_name'=>$facebook_name,'response'=>$fb_user));
 		}else {
 			$this->render('facebookerror',array());
