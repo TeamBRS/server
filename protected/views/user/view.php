@@ -33,7 +33,7 @@ $this->breadcrumbs=array(
 				Insert results of a beautiful query here...
 			</div>
 		</div>
-		<div class="span3"><img src="http://graph.facebook.com/<?php echo $fb_user->facebook_id;  ?>/picture?type=large"></div>
+		<div class="span3"><img src="http://graph.facebook.com/<?php if($fb_user) {echo $fb_user->facebook_id;}  ?>/picture?type=large"></div>
 	</div>
 </div>
 
