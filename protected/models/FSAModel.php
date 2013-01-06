@@ -142,18 +142,22 @@ class FSAModel extends CFormModel
 					
 				}
 				
-				//we've found it - now save it to the database
-				$new_place = new FacebookPlace;
-				
-				$new_place->page_id = strval($closest->page_id); //dirty string hack
-				$new_place->pic_large = $closest->pic_large;
-				$new_place->type = $closest->type;
-				$new_place->name = $closest->name;
-				$new_place->is_unclaimed = $closest->is_unclaimed;
-				$new_place->latitude = $closest->longitude;
-				$new_place->longitude = $closest->latitude;
-				
-				$new_place->insert();
+				//we've found it - now save it to the database - but first check for duplicates (this becomes NULL)
+				$existing_place = FacebookPlace::model()->find('page_id=:page_id', array(':page_id'=>$closest->page_id));
+
+				if(!$existing_place) {
+					$new_place = new FacebookPlace;
+					
+					$new_place->page_id = strval($closest->page_id); //dirty string hack
+					$new_place->pic_large = $closest->pic_large;
+					$new_place->type = $closest->type;
+					$new_place->name = $closest->name;
+					$new_place->is_unclaimed = $closest->is_unclaimed;
+					$new_place->latitude = $closest->longitude;
+					$new_place->longitude = $closest->latitude;
+					
+					$new_place->insert();
+				}
 			}
 			
 			$this->CommitDB(2, array($child->BusinessName, $child->BusinessType, $child->AddressLine1, $child->RatingValue,  $this->GetYelpData($lat, $long, $child->BusinessName), $lat, $long
