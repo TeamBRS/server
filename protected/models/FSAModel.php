@@ -61,11 +61,9 @@ class FSAModel extends CFormModel
 		$querystring = "http://maps.googleapis.com/maps/api/geocode/xml?latlng=".$latlong[0].",".$latlong[1]."&sensor=true";
 
 		//Get xml data using CURL
-		
 		$xml = simplexml_load_file($querystring);
 		
 		//Get FSA Listing
-		
 		switch($venue) {
 		
 			case 0: $fsastring = "http://ratings.food.gov.uk/enhanced-search/en-GB/^/^/DISTANCE/1/^/".$latlong[1]."/".$latlong[0]."/1/10/xml"; break;
@@ -79,8 +77,20 @@ class FSAModel extends CFormModel
 		
 		$xmlestab = simplexml_load_file($fsastring);
 		
+		//retrieve facebook user using their username
+		$fb_user = FacebookUser::model()->find('user_id=:user_id', array(':user_id'=>Yii::app()->user->getId()));	
+		
+		//only do facebook stuff if this user is actually logged in
+		if($fb_user) 
+		{
+			$fql = " SELECT page_id, name, is_unclaimed, type, checkin_count, latitude, longitude,pic_large FROM place WHERE (distance(latitude, longitude, '52.29189249999999', '-1.5322422') < 25000)  LIMIT 100";
+			//pull out data from the facebook opengraph
+			$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
+			
+			$fb_places = json_decode(file_get_contents($fb_url));
+		}
+		
 		//Construct FSA Listings
-	
 		$xmlrest = $xmlestab->EstablishmentCollection;
 				
 		foreach($xmlrest->EstablishmentDetail as $child)
@@ -102,6 +112,49 @@ class FSAModel extends CFormModel
 			$this->businesstype[] = $child->BusinessType;
 			$this->businessaddr1[] = $child->AddressLine1;
 			$this->businessrating[] = $child->RatingValue;
+			
+			//match up with facebook info (again, only if the user is logged in)
+			if($fb_user) {
+				
+				//shortest has not been found yet
+				$shortest = -1;
+
+				//loop through each business name to find the closest match
+				foreach($fb_places->data as $fb_place) {
+					
+					//neasure the distance between the two words
+					$lev = levenshtein($child->BusinessName, $fb_place->name);
+					
+					//we have found an exact match, good!
+					if($lev == 0) {
+						$closest = $fb_place;
+						$shortest = 0;
+						break;
+					}
+					
+					// if this distance is less than the next found shortest
+					// distance, OR if a next shortest word has not yet been found
+					if ($lev <= $shortest || $shortest < 0) {
+						// set the closest match, and shortest distance
+						$closest  = $fb_place;
+						$shortest = $lev;
+					}					
+					
+				}
+				
+				//we've found it - now save it to the database
+				$new_place = new FacebookPlace;
+				
+				$new_place->page_id = $closest->page_id; //dirty string hack
+				$new_place->pic_large = $closest->pic_large;
+				$new_place->type = $closest->type;
+				$new_place->name = $closest->name;
+				$new_place->is_unclaimed = $closest->is_unclaimed;
+				$new_place->latitude = $closest->longitude;
+				$new_place->longitude = $closest->latitude;
+				
+				$new_place->insert();
+			}
 			
 			$this->CommitDB(2, array($child->BusinessName, $child->BusinessType, $child->AddressLine1, $child->RatingValue,  $this->GetYelpData($lat, $long, $child->BusinessName), $lat, $long
 ));
