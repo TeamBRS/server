@@ -158,7 +158,7 @@ class SiteController extends Controller
 			$data = $model->ReverseGeocode($loc,$venue);
 			
 			//Refine results
-			$data = $model->RefineResults();
+			$data2 = $model->RefineResults();
 
 			//Assign results
 			$locmarkers = $model->locmarkers;
@@ -172,7 +172,7 @@ class SiteController extends Controller
 			$queries = $model->GetHistory();
 				
 			//Render results in result.php
-			$this->render('result',array('results'=>$data, 
+			$this->render('result',array('results'=>$data2, 
 			'loc'=>$latlong, 'past'=>$queries,'markers'=>$locmarkers, 'bname'=>$bname,
 			'btype'=>$btype,'baddr1'=>$baddr1,'brate'=>$brate, 'cuisine'=>$bcats));
 						

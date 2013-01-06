@@ -170,82 +170,82 @@ class FSAModel extends CFormModel
 			
 				case 1: 
 					if ($this->businesscuisine[$i]!="English") {
-						echo "no match<br />";
+						
 						$this->UnsetElements($i);
 					} else {
-						echo "match<br />";
+						
 					}
 					break;
 				case 2: 
 					if ($this->businesscuisine[$i]!="Italian") {
-						echo "no match<br />";
+						
 						$this->UnsetElements($i);
 					} else {
-						echo "match<br />";
+						
 					}
 					break;
 				case 3:					
 					if ($this->businesscuisine[$i]!="Chinese") {
-						echo "no match<br />";
+						
 						$this->UnsetElements($i);
 					} else {
-						echo "match<br />";
+						
 					}
 					break; 
 				case 4: 
 					if ($this->businesscuisine[$i]!="Coffee & Tea") {
-						echo "no match<br />";
+						
 						$this->UnsetElements($i);
 					} else {
-						echo "match<br />";
+						
 					}
 				break;
 				case 5:					
 					if ($this->businesscuisine[$i]!="Indian") {
-						echo "no match<br />";
+						
 						$this->UnsetElements($i);
 					} else {
-						echo "match<br />";
+						
 					} 
 				break;
 				case 6:
 					if ($this->businesscuisine[$i]!="Fast Food") {
-						echo "no match<br />";
+						
 						$this->UnsetElements($i);
 					} else {
-						echo "match<br />";
+						
 					} 
 				break;
 				case 7:
 					if ($this->businesscuisine[$i]!="Pubs") {
-						echo "no match<br />";
+						
 						$this->UnsetElements($i);
 					} else {
-						echo "match<br />";
+						
 					} 
 				break;
 				case 8: 
 					if ($this->businesscuisine[$i]!="Pizza") {
-						echo "no match<br />";
+						
 						$this->UnsetElements($i);
 					} else {
-						echo "match<br />";
+						
 					} 
 				break;
 				case 9:
 					if ($this->businesscuisine[$i]!="Spanish") {
-						echo "no match<br />";
+						
 						$this->UnsetElements($i);
 					} else {
-						echo "match<br />";
+						
 					} 
 				break;
 				case 10:
 					if ($this->businesscuisine[$i]!="Spanish") {
-						echo "no match<br />";
+						
 						$this->UnsetElements($i);
 					} else {
-						echo "match<br />";
+						
 					} 
 				break;
 
