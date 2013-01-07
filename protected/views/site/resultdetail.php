@@ -114,16 +114,16 @@
 		//JSON Photo Decoding Block
 		try {
 	
-		/*if(array_key_exists('photos', $decodeddetail['result'])) {
-			
-			$listingdetails['photos'] = $decodeddetail['result']['photos'];
-
-			$ref = $listingdetails['photos'][0]['photo_reference'];
-			$photourl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=280&photoreference=".$ref."&sensor=true&key=".$apikey;*/
-	
+			echo '<b><u>Friend Facebook Activity</b></u><br />';
+			echo 'Check Ins: '.$checkins."<br />";
+			echo 'Visitors: '.$visitors."<br />";
+			echo 'Likes: '.$likes."<br />";
+			/*echo 'Sociability Factor:'.$social;
+			echo 'Likeability Factor:'.$likability;*/
+		
 		} catch (Exception $e) {
 	
-	
+			echo $e;
 	
 		}
 		
