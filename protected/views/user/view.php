@@ -23,7 +23,15 @@ $this->breadcrumbs=array(
 			
 			<div>
 				<h4>Favourite cuisines</h4>
-				Insert results of a beautiful query here...
+				<ul>
+				<?php
+					foreach($cats as $c) {
+						if($c) {
+							echo "<li>" .$c ."</li>";
+						}
+					}
+				?>
+				</ul>
 			</div>
 			
 			<div>

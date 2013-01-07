@@ -59,12 +59,48 @@ class UserController extends Controller
 		$gnn_user = User::model()->find('id=:id', array(':id'=>$id));
 		
 		//retrieve facebook user using their username
-		$fb_user = FacebookUser::model()->find('user_id=:user_id', array(':user_id'=>$gnn_user->username));		
+		$fb_user = FacebookUser::model()->find('user_id=:user_id', array(':user_id'=>$gnn_user->username));	
+
+		//pull out the user's history
+		$sql = "SELECT * from tbl_query_results WHERE user_id ='" .$gnn_user->username ."';";
+		var_dump($sql);
 		
+		$command = Yii::app()->db->createCommand($sql);
+		$command->bindParam("category_id", $categoryId, PDO::PARAM_INT);
+		$rows = $command->queryAll();
+		
+		$cats = array();
+		
+		foreach($rows as $row) {
+			$cats[] = $row['business_cuisine'];
+		}
+		
+		$a = $b = $c = $d = null;
+		foreach($cats as $v) {
+		  if(!isset($a) || $v > $a) {
+			$d = $c;
+			$c = $b;
+			$b = $a;
+			$a = $v;
+		  }elseif(!isset($b) || $v > $b) {
+			$d = $c;
+			$c = $b;
+			$b = $v;
+		  }elseif(!isset($c) || $v > $c) {
+			$d = $c;
+			$c = $v;
+		  }elseif(!isset($d) || $v > $d) {
+			$d = $v;
+		  }
+		}
+
+		$cats = array($a, $b, $c, $d);
+				
 		//display the profile page 
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 			'fb_user'=>$fb_user,
+			'cats'=>$cats,
 		));
 	}
 
