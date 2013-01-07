@@ -168,13 +168,24 @@ class FSAModel extends CFormModel
 				if(!$existing_place) {
 					$current_place = $new_place;
 				} else {
-					$current_place = $existing_place
+					$current_place = $existing_place;
 				}
 				
-				//query the open graph for the places we have just discovered
-			$fql = "SELECT tagged_uids, checkin_id, page_id FROM checkin WHERE  checkin_id IN (SELECT checkin_id  FROM checkin WHERE page_id IN (" .$current_place->page_id ."))";
-			$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
-			$fb_checkins = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
+				//query the open graph for the place we have just discovered
+				$fql = "SELECT tagged_uids, checkin_id, page_id FROM checkin WHERE  checkin_id IN (SELECT checkin_id  FROM checkin WHERE page_id IN (" .$current_place->page_id ."))";
+				$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
+				$fb_checkins = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
+				
+				//count everything for our metrics
+				$no_people = 0;
+				$no_checkins = count($fb_checkins->data);
+				//iterate over checkins and add them into the database
+				foreach ($fb_checkins->data as $fb_checkin) {
+					//count people
+					foreach($fb_checkin->tagged_uids as $tu) {
+						$no_people += count($tu);
+					}
+				}
 				
 				//add placeID to the list
 				$place_ids[] = strval($closest->page_id);
@@ -187,25 +198,7 @@ class FSAModel extends CFormModel
 		}
 		
 		//turn our array of placeIDs into a comma separated list
-		$place_id_list = implode(",", $place_ids);
-		
-		//query the open graph for the places we have just discovered
-		$fql = "SELECT tagged_uids, checkin_id, page_id FROM checkin WHERE  checkin_id IN (SELECT checkin_id  FROM checkin WHERE page_id IN (" .$place_id_list ."))";
-		$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
-		$fb_checkins = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
-		
-		//the number of checkins by friends
-		$no_checkins = count($fb_checkins->data);
-		$no_people = 0;
-		
-		//iterate over checkins and add them into the database
-		foreach ($fb_checkins->data as $fb_checkin) {
-			//count people
-			foreach($fb_checkin->tagged_uids as $tu) {
-				$no_people += count($tu);
-			}
-		}
-		
+		$place_id_list = implode(",", $place_ids);	
 		
 	}
 
