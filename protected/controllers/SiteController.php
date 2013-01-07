@@ -116,40 +116,46 @@ class SiteController extends Controller
 			$name = $_POST['name'];
 			$location = $_POST['mk'];
 			$mode = 'review';
-			echo '<h1>'.$mode.'</h1>';
 			
 		} else if(count($_POST)==3) {
 		
 		    $name = $_POST['name'];
 			$location = $_POST['mk'];
 			$mode = 'twitter';
-			echo '<h1>'.$mode.'</h1>';
-
+			
 		} else {
 		
 		    $name = $_POST['name'];
 			$location = $_POST['mk'];
 			$mode = 'default';
-			echo '<h1>'.$mode.'</h1>';
 		
 		}
-		
+
+		try {
 		//pull out the metrics from the database (cba for capitals)
-		$sql = "SELECT checkins, visitors, likes FROM tbl_query_results LEFT JOIN tbl_query_facebook_results ON tbl_query_results.query_id = tbl_query_facebook_results.query_id AND business_name=" .$name ."AND user_id=" .Yii::app()->user->getId();
-		$conn=Yii::app()->db;
-		$comm=$conn->createCommand($sql);		
+			$sql = "SELECT checkins, visitors, likes FROM tbl_query_results LEFT JOIN tbl_query_facebook_results ON tbl_query_results.query_id = tbl_query_facebook_results.query_id AND business_name=" .$name ."AND user_id='".Yii::app()->user->getId();
+			$sql2 = "SELECT * FROM tbl_query_results LEFT JOIN tbl_query_facebook_results ON tbl_query_results.query_id = tbl_query_facebook_results.query_id WHERE business_name='" .$name ."' AND user_id='" .Yii::app()->user->getId() ."'" ;
+			$conn=Yii::app()->db;
+			$comm=$conn->createCommand($sql2);	
+			$results = $comm->queryAll();
+			
+			//not sure if the above returns an array (if so, all we care about is the last element)...
 		
-		//not sure if the above returns an array (if so, all we care about is the last element)...
+		    $checkins=$results[0]["checkins"];
+			$visitors=$results[0]["visitors"];
+			$likes=$results[0]["likes"];
 		
-		$checkins=1;
-		$visitors=1;
-		$likes=1;
+			/*$sociability = $checkins/$visitors;
+			$likability = $checkins/$likes;*/
 		
-		$sociability = $checkins/$visitors;
-		$popularity = $people;
-		$likability = $checkins/$likes;
+					
+		} catch (Exception $e) {
 		
-		$this->renderPartial('resultdetail', array('location'=>$location, 'name'=>$name, 'mode'=>$mode), false, true);
+			echo $e;
+			
+		}
+		
+		$this->renderPartial('resultdetail', array('checkins'=>$checkins,'visitors'=>$visitors,'likes'=>$likes,'location'=>$location, 'name'=>$name, 'mode'=>$mode), false, true);
 	}
 	
 	public function actionFSA()
