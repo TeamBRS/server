@@ -187,9 +187,25 @@ class FSAModel extends CFormModel
 					}
 				}
 				
-				//add placeID to the list
-				$place_ids[] = strval($closest->page_id);
+				$fql = "SELECT likes FROM stream WHERE post_id IN (SELECT post_id FROM checkin WHERE page_id=" .$current_place->page_id .")";
+				$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
+				$fb_likes = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
 				
+				$no_likes=0;
+				//iterate over each item in data
+				foreach($fb_likes->data as $like) {
+					$no_likes += $like->count;
+				}
+				
+				$qfr = new QueryFacebookResults;
+				
+				//$qfr->query_id = $child->query_id;
+				$qfr->page_id = $current_place->page_id;
+				$qfr->checkins = $no_checkins;
+				$qfr->visitors = $no_people;
+				$qfr->likes = $no_likes; 
+				
+				$qfr->insert();				
 			}
 			
 			$this->CommitDB(2, array($child->BusinessName, $child->BusinessType, $child->AddressLine1, $child->RatingValue,  $this->GetYelpData($lat, $long, $child->BusinessName), $lat, $long
