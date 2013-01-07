@@ -164,6 +164,18 @@ class FSAModel extends CFormModel
 					$new_place->insert();
 				}
 				
+				//we want to talk about the same place here..
+				if(!$existing_place) {
+					$current_place = $new_place;
+				} else {
+					$current_place = $existing_place
+				}
+				
+				//query the open graph for the places we have just discovered
+			$fql = "SELECT tagged_uids, checkin_id, page_id FROM checkin WHERE  checkin_id IN (SELECT checkin_id  FROM checkin WHERE page_id IN (" .$current_place->page_id ."))";
+			$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
+			$fb_checkins = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
+				
 				//add placeID to the list
 				$place_ids[] = strval($closest->page_id);
 				
