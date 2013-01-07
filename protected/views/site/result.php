@@ -14,6 +14,7 @@ $this->breadcrumbs=array(
 );
 
 include('twitter.php');
+include('recommender.php');
 	
 ?>
 <!--Do not change!-->
@@ -157,8 +158,9 @@ $(document).on("click", ".open-SocialFeed", function () {
             <ul class="nav nav-list">
               <li class="nav-header">Details of Search</li>
               <!--php customisation options go here -->
-              <li><span class="label label-success">Open</span> (3)</li>
-              <li><span class="label label-important">Closed</span> (7)</li>
+              <li>Rating: <?php echo $br; ?></li>
+              <li>Cuisine: <?php echo $cco; ?></li>
+		      <li>Venue: <?php echo $bt; ?></li>
               <li class="nav-header">Social Feeds</li>
               <?php $res = getTwitterData($loc, true, $bname); ?>
               <li><a href="#socialactivity" data-id="twitter" data-toggle="modal" class="open-SocialFeed">Twitter Activity 
@@ -167,7 +169,7 @@ $(document).on("click", ".open-SocialFeed", function () {
     			'label'=>count($res),
 			  )); ?>
               </a></li>
-              <li><a href="#">Google+ Activity</a></li>
+              <li><a href="#">Facebook</a></li>
            </ul>
            <hr>
             <ul class="nav nav-list">
@@ -238,18 +240,18 @@ $(document).on("click", ".open-SocialFeed", function () {
     		  <div id='contentslider' style='opacity:0;filter:alpha(opacity=0);'>
 			  <ul class='nav nav-tabs' id='infotabs'>
   				<li><a href='#summary' data-toggle='pill'>Summary</a></li>
-  				<li><a href='#profile' data-toggle='pill'>Social Activity</a></li>
-  				<li><a href='#messages' data-toggle='pill'>Recommender Result</a></li>
+  				<li><a href='#profile' data-toggle='pill'>Facebook</a></li>
+  				<li><a href='#messages' data-toggle='pill'>Recommendation</a></li>
  				<li><a href='#settings' data-toggle='pill'>Discuss and Contribute</a></li>
 			  </ul>
 			  <div class='tab-content'>
   			  	<div class='tab-pane active' id='summary'></div>
   				<div class='tab-pane' id='profile'></div>
-  				<div class='tab-pane' id='messages'></div>
+  				<div class='tab-pane' id='messages'>".recommenderData($loc, $res)."</div>
   				<div class='tab-pane' id='settings'></div>
 			  </div>
 			  </div>
-			  </div>";
+			  </div>"; 
 	
 	for ($i = 0; $i < count($brate); $i++) {
 	

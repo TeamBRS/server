@@ -158,7 +158,7 @@ class SiteController extends Controller
 			$data = $model->ReverseGeocode($loc,$venue);
 			
 			//Refine results
-			$data2 = $model->RefineResults();
+			$data = $model->RefineResults();
 
 			//Assign results
 			$locmarkers = $model->locmarkers;
@@ -167,14 +167,17 @@ class SiteController extends Controller
 			$baddr1 = $model->businessaddr1;
 			$brate = $model->businessrating;
 			$bcats = $model->businesscuisine;
+			$cat = $model->cuisine;
+			$br = $model->minrating;
+			$bt = $model->venue;
 			
 			//Get array of previous queries
 			$queries = $model->GetHistory();
 				
 			//Render results in result.php
-			$this->render('result',array('results'=>$data2, 
+			$this->render('result',array('results'=>$data, 
 			'loc'=>$latlong, 'past'=>$queries,'markers'=>$locmarkers, 'bname'=>$bname,
-			'btype'=>$btype,'baddr1'=>$baddr1,'brate'=>$brate, 'cuisine'=>$bcats));
+			'btype'=>$btype,'baddr1'=>$baddr1,'brate'=>$brate, 'cuisine'=>$bcats, 'cco'=>$cat, 'br'=>$br, 'bt'=>$bt));
 						
 		} else {
 	

@@ -11,9 +11,6 @@ $this->breadcrumbs=array(
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
 </script>
-<div id="loading">
-  <img id="loading-image" src="ajax-loader2.gif" alt="Loading..." />
-</div>
 
 <?php if(Yii::app()->user->hasFlash('fsa')): ?>
 
@@ -107,10 +104,4 @@ function showPosition(position)
 	tbox.value = position.coords.latitude + ", " + position.coords.longitude; 
 }
 
-</script>
-
-<script language="javascript" type="text/javascript">
-  $(window).load(function() {
-    $('#loading').hide();
-  });
 </script>
