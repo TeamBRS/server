@@ -260,12 +260,12 @@ class FSAModel extends CFormModel
 						
 						$this->UnsetElements($i);
 					} else {
-						
+						$this->cuisine="English";						
 					}
 					break;
 				case 2: 
 					if ($this->businesscuisine[$i]!="Italian") {
-						
+						$this->cuisine="Italian";
 						$this->UnsetElements($i);
 					} else {
 						
@@ -273,7 +273,7 @@ class FSAModel extends CFormModel
 					break;
 				case 3:					
 					if ($this->businesscuisine[$i]!="Chinese") {
-						
+						$this->cuisine="Chinese";
 						$this->UnsetElements($i);
 					} else {
 						
@@ -281,7 +281,7 @@ class FSAModel extends CFormModel
 					break; 
 				case 4: 
 					if ($this->businesscuisine[$i]!="Coffee & Tea") {
-						
+						$this->cuisine="Coffee & Tea";						
 						$this->UnsetElements($i);
 					} else {
 						
@@ -289,7 +289,7 @@ class FSAModel extends CFormModel
 				break;
 				case 5:					
 					if ($this->businesscuisine[$i]!="Indian") {
-						
+						$this->cuisine="Indian";						
 						$this->UnsetElements($i);
 					} else {
 						
@@ -297,7 +297,7 @@ class FSAModel extends CFormModel
 				break;
 				case 6:
 					if ($this->businesscuisine[$i]!="Fast Food") {
-						
+						$this->cuisine="Fast Food";						
 						$this->UnsetElements($i);
 					} else {
 						
@@ -305,7 +305,7 @@ class FSAModel extends CFormModel
 				break;
 				case 7:
 					if ($this->businesscuisine[$i]!="Pubs") {
-						
+						$this->cuisine="Pubs";						
 						$this->UnsetElements($i);
 					} else {
 						
@@ -313,7 +313,7 @@ class FSAModel extends CFormModel
 				break;
 				case 8: 
 					if ($this->businesscuisine[$i]!="Pizza") {
-						
+						$this->cuisine="Pizza";						
 						$this->UnsetElements($i);
 					} else {
 						
@@ -321,22 +321,22 @@ class FSAModel extends CFormModel
 				break;
 				case 9:
 					if ($this->businesscuisine[$i]!="Spanish") {
-						
+						$this->cuisine="Spanish";						
 						$this->UnsetElements($i);
 					} else {
 						
 					} 
 				break;
 				case 10:
-					if ($this->businesscuisine[$i]!="Spanish") {
-						
+					if ($this->businesscuisine[$i]!="Japanese") {
+						$this->cuisine="Japanese";						
 						$this->UnsetElements($i);
 					} else {
 						
 					} 
 				break;
 
-				default: break;
+				default: $this->cuisine="Multiple Categories"; break;
 			}
 			
 		}
@@ -348,7 +348,7 @@ class FSAModel extends CFormModel
         		unset($this->businessrating[$key]);
         		$this->businessrating = array_values($this->businessrating);
 			}
-		}
+		}*/
 
 				
 	
@@ -371,19 +371,12 @@ class FSAModel extends CFormModel
 					$this->businessrating = array_values($this->businessrating);
 				}
 											
-		}*/
+		}
 		$this->CommitDB(1, null);
 	
 	}
 	
 	public function UnsetElements($index) {
-		
-		/*$this->businesscuisine[$index] = "";
-		$this->locmarkers[$index] = "";
-		$this->businessname[$index] = "";
-		$this->businesstype[$index] = "";
-		$this->businessaddr1[$index] = "";
-		$this->businessrating[$index] = "";*/
 		
 		unset($this->businesscuisine[$index]);
 		unset($this->locmarkers[$index]);

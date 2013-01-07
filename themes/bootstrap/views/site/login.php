@@ -11,7 +11,7 @@ $this->breadcrumbs=array(
 
 <h1>Login</h1>
 
-<p>Please fill out the following form with your login credentials:</p>
+<h4>New to <i>GastroNoNo</i>?...Register <a href = "index.php?r=site/register">here</a></h4>
 
 <div class="form">
 
