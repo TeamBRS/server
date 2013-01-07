@@ -26,17 +26,25 @@ function getTwitterData($location, $sentiment, $bnames) {
 		
 			$feed = @file_get_contents($data); //Getting the JSON data.
 	 	
-			$valid_data = json_decode($feed); // Converting the JSON data to PHP format.
-			$valid_data = $valid_data->results; // Valid data now with just the tweet result.
-			// Printing out the feed's data in our required format
+	 		if($feed === FALSE) { 
 
-			foreach ($valid_data as $key=>$value) {
+				//do nothing
+	 		
+	 		} else {
+	 	
+				$valid_data = json_decode($feed); // Converting the JSON data to PHP format.
+				$valid_data = $valid_data->results; // Valid data now with just the tweet result.
+				// Printing out the feed's data in our required format
+
+				foreach ($valid_data as $key=>$value) {
 			
-	  			array_push($tweets, '<div id="twitter-data-container">
-						  <blockquote class="twitter-tweet"><p>'.$value->text.'</p>&mdash; @'.$value->from_user.' <a href="https://twitter.com/twitterapi/status/'.strval($value->id).'" data-datetime="'.$value->created_at.'">'.$value->created_at.'</a></blockquote>
-						  </div>');
-	  
+	  				array_push($tweets, '<div id="twitter-data-container">
+						  	<blockquote class="twitter-tweet"><p>'.$value->text.'</p>&mdash; @'.$value->from_user.' <a href="https://twitter.com/twitterapi/status/'.strval($value->id).'" data-datetime="'.$value->created_at.'">'.$value->created_at.'</a></blockquote>
+						  	</div>');
+	  	
+	  			}
 			}
+			
 		} catch (Exception $e) {
 		
 			//do nothing

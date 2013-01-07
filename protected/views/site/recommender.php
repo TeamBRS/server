@@ -50,9 +50,15 @@ function recommenderData($location, $tweets) {
 	
 	//recommendation based on averaging over queries compared to current query
 	$recstring = "<h4>Based on</h4>Preference for ".$av." cuisine.
-	<h4>Queried locations</h4>".$rests[0]["business_name"].", ".$rests[1]["business_name"]." and ".$rests[2]["business_name"]
-	."<h4>Tweets in the area</h4>".$tweets[0].$tweets[1].
-	"<h4>Your average hygiene rating preference</h4>".$avrating." stars.".
+	<h4>Queried locations</h4>".$rests[0]["business_name"].", ".$rests[1]["business_name"]." and ".$rests[2]["business_name"];
+	
+	if (count($tweets)<=1){
+		$tweetstring = "No tweets";
+	} else {
+		$tweetstring = "<h4>Tweets in the area</h4>".$tweets[0].$tweets[1];
+	}
+	
+	$recstring2 = "<h4>Your average hygiene rating preference</h4>".$avrating." stars.".
 	"<h4>Average business cuisine's in the area </h4>".$commcu[0]["business_cuisine"];
 	
 	//select ideal place to go based on averaged statistics on queries
@@ -66,7 +72,7 @@ function recommenderData($location, $tweets) {
 	
 	$gostring = "<h4>Top ranked place to go</h4>".$rts[0]["business_name"];
 	
-	return $recstring.$gostring;
+	return $recstring.$tweetstring.$recstring2.$gostring;
 	
 
 }
