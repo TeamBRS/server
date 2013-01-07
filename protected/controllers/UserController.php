@@ -138,7 +138,11 @@ class UserController extends Controller
 			$_SESSION['state'] = md5(uniqid(rand(), TRUE)); // CSRF protection
 			$dialog_url = "https://www.facebook.com/dialog/oauth?client_id=" 
 				. $this->app_id . "&redirect_uri=" . urlencode($my_url) . "&state="
-				. $_SESSION['state'];
+				. $_SESSION['state'] . 
+				"&scope=user_activities,user_birthday,user_hometown,user_interests,user_likes,"
+				."user_location,user_relationships,user_relationship_details,user_religion_politics,"
+				."friends_activities,friends_interests,friends_relationships,friends_status,friends_photos,"
+				."offline_access,read_friendlists,publish_checkins,publish_actions";
 
 			$message = "<script> top.location.href='" . $dialog_url . "'</script>";
 			$this->render('facebookout',array('model'=>$model,'message'=>$message,));
