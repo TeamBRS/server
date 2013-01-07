@@ -95,26 +95,30 @@ class UserController extends Controller
 
 		$cats = array($a, $b, $c, $d);
 		
-		//get previous rests
-		$fql = "SELECT name, categories FROM page WHERE page_id IN (SELECT page_id from checkin WHERE author_uid =me())"; 
-		$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
-		$fb_prev = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
-
 		$previous = array();
 		
-		foreach($fb_prev->data as $prev) {
-			//var_dump($prev); die();
-			$flag=false;
-			foreach($prev->categories as $ccc) {
-				if($ccc->name == ("Bar" || "Restaurant")) {
-					$flag=true;
+		if($fb_user){
+			//get previous rests
+			$fql = "SELECT name, categories FROM page WHERE page_id IN (SELECT page_id from checkin WHERE author_uid =me())"; 
+			$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
+			$fb_prev = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
+
+			
+			
+			foreach($fb_prev->data as $prev) {
+				//var_dump($prev); die();
+				$flag=false;
+				foreach($prev->categories as $ccc) {
+					if($ccc->name == ("Bar" || $ccc->name == "Restaurant")) {
+						$flag=true;
+					}
+				}
+				if ($flag) {
+					$previous[] = $prev->name;
 				}
 			}
-			if ($flag) {
-				$previous[] = $prev->name;
-			}
-		}
-			
+		}	
+		
 		//display the profile page 
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
