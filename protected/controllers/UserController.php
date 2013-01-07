@@ -63,7 +63,6 @@ class UserController extends Controller
 
 		//pull out the user's history
 		$sql = "SELECT * from tbl_query_results WHERE user_id ='" .$gnn_user->username ."';";
-		var_dump($sql);
 		
 		$command = Yii::app()->db->createCommand($sql);
 		$command->bindParam("category_id", $categoryId, PDO::PARAM_INT);
@@ -95,12 +94,33 @@ class UserController extends Controller
 		}
 
 		$cats = array($a, $b, $c, $d);
-				
+		
+		//get previous rests
+		$fql = "SELECT name, categories FROM page WHERE page_id IN (SELECT page_id from checkin WHERE author_uid =me())"; 
+		$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
+		$fb_prev = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
+
+		$previous = array();
+		
+		foreach($fb_prev->data as $prev) {
+			//var_dump($prev); die();
+			$flag=false;
+			foreach($prev->categories as $ccc) {
+				if($ccc->name == ("Bar" || "Restaurant")) {
+					$flag=true;
+				}
+			}
+			if ($flag) {
+				$previous[] = $prev->name;
+			}
+		}
+			
 		//display the profile page 
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 			'fb_user'=>$fb_user,
 			'cats'=>$cats,
+			'previous'=>$previous
 		));
 	}
 
@@ -176,7 +196,7 @@ class UserController extends Controller
 				. $this->app_id . "&redirect_uri=" . urlencode($my_url) . "&state="
 				. $_SESSION['state'] . 
 				"&scope=user_activities,user_birthday,user_hometown,user_interests,user_likes,"
-				."user_location,user_relationships,user_relationship_details,user_religion_politics,"
+				."user_location,user_relationships,user_relationship_details,user_religion_politics,user_checkins,friends_checkins,user_status,friends_status,"
 				."friends_activities,friends_interests,friends_relationships,friends_status,friends_photos,"
 				."offline_access,read_friendlists,publish_checkins,publish_actions";
 

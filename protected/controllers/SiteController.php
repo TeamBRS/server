@@ -135,7 +135,6 @@ class SiteController extends Controller
 		}
 		
 		//pull out the metrics from the database (cba for capitals)
-		//$sql = "SELECT checkins, visitors, likes FROM tbl_query_results LEFT JOIN tbl_query_facebook_results ON tbl_query_results.query_id = tbl_query_facebook_results.query_id AND business_name=" .$name ."AND user_id=" .Yii::app()->user->getId();
 		//$conn=Yii::app()->db;
 		//$comm=$conn->createCommand($sql);		
 		

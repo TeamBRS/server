@@ -36,7 +36,13 @@ $this->breadcrumbs=array(
 			
 			<div>
 				<h4>Places Visited</h4>
-				Insert results of a beautiful query here...
+								<?php
+					foreach($previous as $p) {
+						if($c) {
+							echo "<li>" .$p ."</li>";
+						}
+					}
+				?>
 			</div>
 		</div>
 		<div class="span3">
