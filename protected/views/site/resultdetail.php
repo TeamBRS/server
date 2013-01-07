@@ -135,8 +135,6 @@
 			if(!array_key_exists('rating', $decodeddetail['result'])) {
 			?>
 				<br />
-    			<a href="#" class="thumbnail" rel="tooltip" data-title="Tooltip">
-        		<img src="http://placehold.it/280x180" alt="">
         		<b>Average Rating:</b> N/A
     			</a>
 				<div class="alert alert-error">
@@ -149,8 +147,6 @@
 					
 					$listingdetails['rating'] = $decodeddetail['result']['rating'];
 					?>
-    				<a href="#" class="thumbnail" rel="tooltip" data-title="Tooltip">
-        			<img src="http://placehold.it/280x180" alt="">
         			<b>Average Rating: </b> <i> <?php echo $listingdetails['rating']; ?> </i>
     				</a>
 					<?php

@@ -242,13 +242,11 @@ $(document).on("click", ".open-SocialFeed", function () {
   				<li><a href='#summary' data-toggle='pill'>Summary</a></li>
   				<li><a href='#profile' data-toggle='pill'>Facebook</a></li>
   				<li><a href='#messages' data-toggle='pill'>Recommendation</a></li>
- 				<li><a href='#settings' data-toggle='pill'>Discuss and Contribute</a></li>
 			  </ul>
 			  <div class='tab-content'>
   			  	<div class='tab-pane active' id='summary'></div>
   				<div class='tab-pane' id='profile'></div>
   				<div class='tab-pane' id='messages'>".recommenderData($loc, $res)."</div>
-  				<div class='tab-pane' id='settings'></div>
 			  </div>
 			  </div>
 			  </div>"; 
