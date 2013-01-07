@@ -164,9 +164,48 @@ class FSAModel extends CFormModel
 					$new_place->insert();
 				}
 				
-				//add placeID to the list
-				$place_ids[] = strval($closest->page_id);
+				//we want to talk about the same place here..
+				if(!$existing_place) {
+					$current_place = $new_place;
+				} else {
+					$current_place = $existing_place;
+				}
 				
+				//query the open graph for the place we have just discovered
+				$fql = "SELECT tagged_uids, checkin_id, page_id FROM checkin WHERE  checkin_id IN (SELECT checkin_id  FROM checkin WHERE page_id IN (" .$current_place->page_id ."))";
+				$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
+				$fb_checkins = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
+				
+				//count everything for our metrics
+				$no_people = 0;
+				$no_checkins = count($fb_checkins->data);
+				//iterate over checkins and add them into the database
+				foreach ($fb_checkins->data as $fb_checkin) {
+					//count people
+					foreach($fb_checkin->tagged_uids as $tu) {
+						$no_people += count($tu);
+					}
+				}
+				
+				$fql = "SELECT likes FROM stream WHERE post_id IN (SELECT post_id FROM checkin WHERE page_id=" .$current_place->page_id .")";
+				$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
+				$fb_likes = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
+				
+				$no_likes=0;
+				//iterate over each item in data
+				foreach($fb_likes->data as $like) {
+					$no_likes += $like->count;
+				}
+				
+				$qfr = new QueryFacebookResults;
+				
+				//$qfr->query_id = $child->query_id;
+				$qfr->page_id = $current_place->page_id;
+				$qfr->checkins = $no_checkins;
+				$qfr->visitors = $no_people;
+				$qfr->likes = $no_likes; 
+				
+				$qfr->insert();				
 			}
 			
 			$this->CommitDB(2, array($child->BusinessName, $child->BusinessType, $child->AddressLine1, $child->RatingValue,  $this->GetYelpData($lat, $long, $child->BusinessName), $lat, $long
@@ -175,25 +214,7 @@ class FSAModel extends CFormModel
 		}
 		
 		//turn our array of placeIDs into a comma separated list
-		$place_id_list = implode(",", $place_ids);
-		
-		//query the open graph for the places we have just discovered
-		$fql = "SELECT tagged_uids, checkin_id, page_id FROM checkin WHERE  checkin_id IN (SELECT checkin_id  FROM checkin WHERE page_id IN (" .$place_id_list ."))";
-		$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
-		$fb_checkins = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
-		
-		//the number of checkins by friends
-		$no_checkins = count($fb_checkins->data);
-		$no_people = 0;
-		
-		//iterate over checkins and add them into the database
-		foreach ($fb_checkins->data as $fb_checkin) {
-			//count people
-			foreach($fb_checkin->tagged_uids as $tu) {
-				$no_people += count($tu);
-			}
-		}
-		
+		$place_id_list = implode(",", $place_ids);	
 		
 	}
 
