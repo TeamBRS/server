@@ -88,6 +88,9 @@ class FSAModel extends CFormModel
 			$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
 			
 			$fb_places = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
+			
+			//create a list of place ids - for use in querying likes
+			$place_ids = array();
 		}
 		
 		//Construct FSA Listings
@@ -112,6 +115,8 @@ class FSAModel extends CFormModel
 			$this->businesstype[] = $child->BusinessType;
 			$this->businessaddr1[] = $child->AddressLine1;
 			$this->businessrating[] = $child->RatingValue;
+			
+			$isds = $child->query_id;
 			
 			//match up with facebook info (again, only if the user is logged in)
 			if($fb_user) {
@@ -158,6 +163,10 @@ class FSAModel extends CFormModel
 					
 					$new_place->insert();
 				}
+				
+				//add placeID to the list
+				$place_ids[] = strval($closest->page_id);
+				
 			}
 			
 			$this->CommitDB(2, array($child->BusinessName, $child->BusinessType, $child->AddressLine1, $child->RatingValue,  $this->GetYelpData($lat, $long, $child->BusinessName), $lat, $long
@@ -165,8 +174,29 @@ class FSAModel extends CFormModel
 
 		}
 		
+		//turn our array of placeIDs into a comma separated list
+		$place_id_list = implode(",", $place_ids);
+		
+		//query the open graph for the places we have just discovered
+		$fql = "SELECT tagged_uids, checkin_id, page_id FROM checkin WHERE  checkin_id IN (SELECT checkin_id  FROM checkin WHERE page_id IN (" .$place_id_list ."))";
+		$fb_url = "https://graph.facebook.com/fql?q=" .urlencode($fql) ."&access_token=" .$fb_user->auth_key;
+		$fb_checkins = json_decode(file_get_contents($fb_url),false, 512, JSON_BIGINT_AS_STRING);
+		
+		//the number of checkins by friends
+		$no_checkins = count($fb_checkins->data);
+		$no_people = 0;
+		
+		//iterate over checkins and add them into the database
+		foreach ($fb_checkins->data as $fb_checkin) {
+			//count people
+			foreach($fb_checkin->tagged_uids as $tu) {
+				$no_people += count($tu);
+			}
+		}
+		
+		
 	}
-	
+
 	public function GetYelpData($lat, $long, $bname) {
 		
 		$consumer_key = "U9oEb5Wb917RLdeHip-7bA";
