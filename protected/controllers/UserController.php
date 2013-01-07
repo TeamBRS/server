@@ -109,13 +109,14 @@ class UserController extends Controller
 				//var_dump($prev); die();
 				$flag=false;
 				foreach($prev->categories as $ccc) {
-					if($ccc->name == ("Bar" || $ccc->name == "Restaurant")) {
+					if($ccc->name == "Bar" || $ccc->name == "Restaurant") {
 						$flag=true;
 					}
 				}
 				if ($flag) {
 					$previous[] = $prev->name;
 				}
+				$flag=false;
 			}
 		}	
 		
